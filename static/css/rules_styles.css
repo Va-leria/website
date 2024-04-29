@@ -15,11 +15,11 @@
 
   .container{
     /* max-width: 1200px; */
-    margin: 0 auto;
+    margin: 0px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 13px 0 27px;
+    padding: 13px 0 0px;
 }
 
 .main{
@@ -49,7 +49,7 @@
     text-align: right;
 }
 
-  .header {
+  /* .header {
     display: flex;
     width: 100%;
     max-width: 1200px;
@@ -67,7 +67,7 @@
       max-width: 100%;
       flex-wrap: wrap;
     }
-  }
+  } */
 
   .learning-rules {
     font-family: 'Unbounded', sans-serif;

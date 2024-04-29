@@ -1,9 +1,93 @@
-nav{
+.header {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    align-items: center;
+    gap: 20px;
+    font-size: 16px;
+    color: #000;
+    font-weight: 300;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 20px;
     border-bottom: 1px solid #000;
+  }
+
+.learning-rules {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 300;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    align-self: stretch;
+    justify-content: center;
+    margin: auto 0;
+    padding: 13px 17px;
+    /* border-bottom: 1px solid #000; */
+  }
+
+  .learning-rules a{
+    text-decoration: none;
+    color: #000;
+  }
+
+  .vacancies {
+    font-family: 'Unbounded', sans-serif;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    white-space: nowrap;
+    justify-content: center;
+    padding: 13px 23px;
+  }
+
+  .vacancies a{
+    text-decoration: none;
+    color: #000;
+  }
+
+  .profile {
+    font-family: 'Unbounded', sans-serif;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    justify-content: center;
+    padding: 12px 18px;
+  }
+
+  .profile a{
+    text-decoration: none;
+    color: #000;
+  }
+
+
+  .nav {
+    align-self: stretch;
+    /* border-bottom: 1px solid #000; */
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin: auto 0;
     padding-top: 30px;
     padding-bottom: 40px;
+  }
+
+  .divider {
+    width: 100%;
+    border: 1px solid #000;
+    align-self: stretch;
+    margin-top: 14px;
+  }
+
+  @media (max-width: 1200px) {
+    .divider {
+      max-width: 100%;
+    }
+  }
+  
+/* nav{ */
+    /* border-bottom: 1px solid #000; */
+    /* padding-top: 30px; */
+    /* padding-bottom: 40px; */
     /* margin-bottom: 60px; */
-}
+/* } */
 
 .nav__content{
     position: relative;
@@ -40,6 +124,14 @@ nav{
 }
 
 .ul__right li{
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 300;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    align-self: stretch;
+    justify-content: center;
+    margin: auto 0;
+    padding: 13px 17px;
     margin-left: 25px;
 }
 
