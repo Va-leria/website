@@ -65,7 +65,7 @@ router.get('/signout', (req, res) => {
         styles: ["/css/reset.css", "/css/reg_styles.css"]
     }
 
-    res.render('signin', { locals });
+    res.render('signout', { locals });
 });
 
 module.exports = router;
