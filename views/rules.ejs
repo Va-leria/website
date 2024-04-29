@@ -1,0 +1,127 @@
+<%- include('./layouts/header.ejs') %>
+<main>
+    <section class="main">
+        <div class="container">
+            <div class="main__content" data-aos="fade-down" data-aos-duration="1000"></div>
+                <img src="/image/strelka 1.png" alt="" class="divider" />
+                <section class="step-1">
+                    <div class="step-1-content">
+                    <div class="step-number">1</div>
+                    <div class="step-description">
+                        Для прохождения уроков и практик на платформе Графикус необходимо <br />
+                        зарегистрироваться, чтобы следить за прогрессом обучения.
+                    </div>
+                    </div>
+                    <img src="/img/strelka 1.png" alt="Step 1 illustration" class="step-1-image" />
+                </section>
+                <section class="step-2">
+                    <img src="/img/Group 29.png" alt="Step 2 illustration" class="step-2-image" />
+                    <div class="step-2-content">
+                    <div class="step-number">2</div>
+                    <div class="step-description">
+                        Обучение состоит из трех больших разделов: <br />
+                        • основы дизайна, <br />
+                        • графический дизайн, <br />
+                        • UI/UX дизайн. <br />
+                        Будет отлично выполнять обучение именно в этом порядке.
+                    </div>
+                    </div>
+                </section>
+                <section class="steps-3-5">
+                    <div class="steps-wrapper">
+                    <div class="step-3">
+                        <div class="step-number">3</div>
+                        <div class="step-description">
+                        Практические задания открываются только после прохождения соответствующего урока теории.
+                        </div>
+                    </div>
+                    <div class="step-4">
+                        <div class="step-number">4</div>
+                        <div class="step-description">
+                        Урок засчитывается пройденным, только в случае выполнения всех заданий в практике.
+                        </div>
+                    </div>
+                    <div class="step-5">
+                        <div class="step-number">5</div>
+                        <div class="step-description">
+                        После прохождения темы раздела ваш результат отображается в личном кабинете. <br />
+                        Если процент прохождения не максимальный, урок можно пройти еще раз, <br />
+                        пока вы не будете довольны результатом.
+                        </div>
+                    </div>
+                    </div>
+                </section>
+
+                <div class="start-learning-button"><a href="/learning">ПЕРЕЙТИ К ОБУЧЕНИЮ</a></div>
+
+                <section class="vacancies-section">
+                <div class="vacancies-container">
+                    <div class="vacancies-content">
+                    <div class="vacancies-description">
+                        <p class="vacancies-text">
+                        На странице "Вакансии" ежемесячно появляются актуальные <br />
+                        вакансии для дизайнеров, на которые может откликнуться <br />
+                        каждый участник платформы Графикус. <br />
+                        <br />
+                        Задания специально подобраны для студентов платформы, <br />
+                        которые уже получили необходимые знания, проверили <br />
+                        свои навыки и готовы приступать к реальным задачам.
+                        </p>
+                        <a href="/vacancies" class="vacancies-button">ПЕРЕЙТИ К ВАКАНСИЯМ</a>
+                    </div>
+                    </div>
+                    <div class="vacancies-image-container">
+                    <img src="/img/image 13.png" alt="Vacancies image" class="vacancies-image" />
+                    </div>
+                </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<%- include('./layouts/footer.ejs') %>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<script>
+    const image3d = document.querySelector('.image3d');
+
+    // Function to apply random movement
+    function randomMovement() {
+      const moveX = (Math.random() - 0.5) * 20; // Change the factor to adjust the initial movement
+      const moveY = (Math.random() - 0.5) * 20; // Change the factor to adjust the initial movement
+      image3d.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    }
+    
+    // Apply random movement on page load or refresh
+    window.addEventListener('DOMContentLoaded', randomMovement);
+    
+    // Smooth transition and follow mouse movement
+    image3d.addEventListener('mousemove', (e) => {
+      const boundingRect = image3d.getBoundingClientRect();
+      const mouseX = e.clientX - boundingRect.left;
+      const mouseY = e.clientY - boundingRect.top;
+    
+      const moveX = (mouseX - boundingRect.width / 2) / 10;
+      const moveY = (mouseY - boundingRect.height / 2) / 10;
+    
+      image3d.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+    
+    // Smooth transition when leaving the container
+    image3d.addEventListener('mouseleave', () => {
+      image3d.style.transition = 'transform 0.5s ease'; // Apply transition
+      randomMovement(); // Apply random movement
+    });
+    
+    // Reset transition when the transition ends
+    image3d.addEventListener('transitionend', () => {
+      image3d.style.transition = ''; // Reset transition after it ends
+    });
+    
+</script>

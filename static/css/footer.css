@@ -1,0 +1,31 @@
+.footer_container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer{
+    margin-bottom: 30px;
+}
+
+.footer__content{
+    max-width: 622px;
+    margin: 0 auto;
+
+}
+.footer__content ul{
+    display: flex;
+
+    justify-content: space-between;
+
+}
+
+.footer__content ul li{
+    font-size: 14px;
+}
+
+.footer__content ul li a{
+    font-size: 14px;
+    text-decoration: underline;
+    color: #000;
+}
+
