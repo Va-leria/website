@@ -32,4 +32,13 @@ router.get('/vacancies', (req, res) => {
     res.render('vacancies', { locals });
 });
 
+router.get('/lk', (req, res) => {
+    const locals = {
+        title: "Вакансии",
+        styles: ["/css/reset.css", "/css/lk_styles.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lk', { locals });
+});
+
 module.exports = router;

@@ -1,0 +1,92 @@
+<%- include('./layouts/header.ejs') %>
+
+<div class="container">
+    <div class="main-container">
+        <div class="content-wrapper">
+        <aside class="sidebar">
+            <section class="profile-section">
+            <div class="avatar-wrapper">
+                <img src="/img/ava image.png" alt="User avatar" class="avatar" />
+            </div>
+            <div class="username">Ястребова Дарья</div>
+            <div class="login-field">логин</div>
+            <div class="password-field">пароль</div>
+            <button class="edit-profile-button">изменить данные</button>
+            <button class="logout-button">выйти из аккаунта</button>
+            </section>
+        </aside>
+        <main class="main-content">
+            <section class="progress-section">
+            <div class="progress-image-wrapper">
+                <img src="/img/stars.png" alt="Progress chart" class="progress-image" />
+            </div>
+            <h2 class="progress-title">Ваш прогресс обучения:</h2>
+            <div class="progress-content">
+                <div class="progress-grid">
+                <div class="progress-column">
+                    <div class="progress-card">
+                    <h3 class="progress-card-topic">Основы дизайна</h3>
+                    <div class="progress-card-content">
+                        <div class="progress-card-topics">
+                        <div class="progress-card-topic">Композиция</div>
+                        <div class="progress-card-topic">Шрифты</div>
+                        <div class="progress-card-topic">Цветовой<br />круг</div>
+                        <div class="progress-card-topic">Базовые<br />термины</div>
+                        </div>
+                        <div class="progress-card-scores">
+                        <div class="progress-card-score">5/5</div>
+                        <div class="progress-card-score">4/5</div>
+                        <div class="progress-card-score">5/5</div>
+                        <div class="progress-card-score">0/5</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="progress-column">
+                    <div class="progress-card">
+                    <h3 class="progress-card-topic">Графический дизайн</h3>
+                    <div class="progress-card-content">
+                        <div class="progress-card-topics">
+                        <div class="progress-card-topic">Логотип</div>
+                        <div class="progress-card-topic">Фирменный<br />стиль</div>
+                        <div class="progress-card-topic">Типография</div>
+                        </div>
+                        <div class="progress-card-scores">
+                        <div class="progress-card-score">5/5</div>
+                        <div class="progress-card-score">4/5</div>
+                        <div class="progress-card-score">0/5</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="progress-column">
+                    <div class="progress-card">
+                    <h3 class="progress-card-topic">UI/UX дизайн</h3>
+                    <div class="progress-card-content">
+                        <div class="progress-card-topics">
+                        <div class="progress-card-topic">Введение<br />в UI/UX</div>
+                        <div class="progress-card-topic">Прототипирование</div>
+                        <div class="progress-card-topic">Психология UX</div>
+                        </div>
+                        <div class="progress-card-scores">
+                        <div class="progress-card-score">5/5</div>
+                        <div class="progress-card-score">3/5</div>
+                        <div class="progress-card-score">0/5</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </section>
+            <section class="cta-section">
+            <p>Начни обучение дизайну прямо сейчас!</p>
+            <button class="cta-button"><a href="/learning">ПЕРЕЙТИ К ОБУЧЕНИЮ</a></button>
+            </section>
+        </main>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<%- include('./layouts/footer.ejs') %>
