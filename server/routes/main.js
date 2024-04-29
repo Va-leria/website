@@ -50,4 +50,13 @@ router.get('/learning', (req, res) => {
     res.render('learning', { locals });
 });
 
+router.get('/signin', (req, res) => {
+    const locals = {
+        title: "Вход",
+        styles: ["/css/reset.css", "/css/vhod_styles.css"]
+    }
+
+    res.render('signin', { locals });
+});
+
 module.exports = router;
