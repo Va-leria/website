@@ -1,0 +1,394 @@
+html{
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 300;
+    box-sizing: border-box;
+    font-size: 18px;
+    background-color: #FBF8EE;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+nav{
+    border-bottom: 1px solid #000;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    margin-bottom: 60px;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav__content{
+    position: relative;
+}
+
+.nav__logo{
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav__content ul{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.nav__content ul li{
+    border: 1px solid #000;
+    border-radius: 30px;
+    text-align: center;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+
+}
+
+.ul__right{
+    display: flex;
+}
+
+.ul__right li{
+    margin-left: 25px;
+}
+
+.ul__left a{
+    text-decoration: none;
+    color: #000;
+}
+
+.ul__right a{
+    text-decoration: none;
+    color: #000;
+}
+
+.main{
+    margin-bottom: 60px;
+}
+.main__title{
+    font-size: 32px;
+    font-weight: 700;
+    width: 560px;
+    line-height: 50px;
+    margin-bottom: 35px;
+}
+
+
+.main__subtitle{
+    width: 740px;
+    margin-bottom: 54px;
+    line-height: 25px;
+}
+
+.main__content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main__right{
+    text-align: right;
+}
+
+.image3d{
+    perspective: 1000px;
+    margin-bottom: 60px;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.image3d img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+  
+
+.study__button{
+    background: linear-gradient(98deg, #FB7C08 0%, #EC7B14 119.56%);
+    box-shadow: 2px 5px 28.8px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    display: inline-flex;
+    padding: 17px 21px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+
+}
+
+.study__button a{
+    color: #FBF8EE;
+    text-decoration: none;
+}
+
+.benefits{
+    margin-bottom: 60px;
+}
+
+.benefits__content{
+    position: relative;
+    color: #FBF8EE;
+}
+
+.benefits__question{
+    position: absolute;
+    z-index: 7;
+    border-radius: 30px;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    top: 110px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #FBF8EE;
+}
+
+.benefits__question-text{
+    padding: 26px 64px;
+    font-size: 20px;
+    background-color: #F77A07;
+    border-radius: 30px;
+}
+
+.benefits__items{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.benefits__item{
+    margin-bottom: 33px;
+    height: 173px;
+    width: 580px;
+    /* background-color: rgba(87, 117, 144, 0.75); */
+    background-color: #577590BF;
+    font-weight: 200;
+    border-radius: 30px;
+    line-height: 20px;
+}
+
+.item__first{
+    padding-left: 42px;
+    padding-right: 42px;
+    padding-top: 23px;
+}
+
+.item__second{
+    padding-top: 52px;
+    padding-left: 39px;
+    padding-right: 36px;
+}
+
+.item__third{
+    padding-top: 20px;
+    padding-right: 33px;
+    text-align: right;
+}
+
+.item__fourth{
+    text-align: right;
+    padding-top: 50px;
+    padding-right: 33px;
+    padding-left: 42px;
+}
+
+.item__fourth span{
+    width: 350px;
+    display: inline-block;
+    text-align: right;
+    margin-left: auto;
+    padding-left: auto;
+}
+
+.learn{
+    margin-bottom: 60px;
+}
+
+.learn__content{
+    position: relative;
+}
+.learn__content::before{
+    content: "";
+    position: absolute;
+    left: -290px;
+    top: 350px;
+    background: url(../img/side_elements/tel_element.png) no-repeat 0 0;
+    width: 338px;
+    height: 338px;
+}
+
+.learn__content::after{
+    content: "";
+    position: absolute;
+    right: -350px;
+    top: -170px;
+    background: url(../img/side_elements/spiral_element.png) no-repeat 0 0;
+    width: 410px;
+    height: 461px;
+}
+
+.learn__title{
+    margin-bottom: 53px;
+    font-size: 32px;
+}
+
+.learn__items{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 200;
+    margin-bottom: 50px;
+    line-height: 22px;
+
+}
+
+.learn__side-item{
+    display: flex;
+    border: 1px solid #577590;
+    border-radius: 20px;
+    padding: 15px;
+    width: 350px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.side-item-image{
+    margin-right: 22px;
+}
+
+.learn__center-item{
+    border: 1px solid #577590;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    padding-right: 29px;
+    padding-left: 29px;
+    width: 300px;
+    border-radius: 30px;
+
+}
+
+.learn__button{
+    text-align: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.faq__title{
+    font-size: 32px;
+    margin-bottom: 39px;
+}
+
+
+.collapsible{
+    max-width: 100%;
+    overflow: hidden;
+    padding-top: 15px;
+    border-top: 1px #000 solid;
+}
+
+.collapsible-last{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000;
+}
+
+.collapsible input{
+    display: none;
+}
+
+.collapsible label{
+    position: relative;
+    font-weight: 200;
+    font-size: 22px;
+    display: block;
+    margin-bottom: 33px;
+    padding-right: 12px;
+    margin-top: 15px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+
+.collapsible label:after{
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 23px;
+    right: 14px;
+    background: url(../img/arrow.svg) no-repeat 0 0;
+    transition: all 0.3s ease;
+
+}
+
+.collapsible input:checked + label:after{
+    transform: rotate(180deg);
+}
+
+.collapsible-text{
+    max-height: 1px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 200;
+    position: relative;
+    top: -100%;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    line-height: 22px;
+ }
+
+
+
+.collapsible input:checked ~ .collapsible-text{
+    max-height: 150px;
+    padding-bottom: 20px;
+    opacity: 1;
+    top: 0;
+}
+
+
+.faq{
+    margin-bottom: 50px;
+}
+
+footer{
+    margin-bottom: 30px;
+}
+
+.footer__content{
+    max-width: 622px;
+    margin: 0 auto;
+
+}
+.footer__content ul{
+    display: flex;
+
+    justify-content: space-between;
+
+}
+
+.footer__content ul li{
+    font-size: 14px;
+}
+
+.footer__content ul li a{
+    font-size: 14px;
+    text-decoration: underline;
+    color: #000;
+}
+

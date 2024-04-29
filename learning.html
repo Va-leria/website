@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучение</title>
+    <link rel="stylesheet" href="./static/css/reset.css">
+    <link rel="stylesheet" href="./static/css/learn styles.css" type="text/css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="nav__content" data-aos="fade-down" data-aos-duration="1000">
+                    <ul>
+                        <div class="ul__left">
+                            <li><a href="rules.html">ПРАВИЛА ОБУЧЕНИЯ</a></li>
+                        </div>
+                        <div class="ul__right">
+                            <li><a href="vacancies.html">ВАКАНСИИ</li></a>
+                            <li><a href="lk.html">ЛИЧНЫЙ КАБИНЕТ</a></li>
+                        </div>
+                    </ul>
+                    <div class="nav__logo">
+                        <a href="index.html"><img src="./static/img/logo.svg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="theme">
+            <div class="main__left">
+            <div class="container" data-aos="fade-down" data-aos-duration="1000">
+
+
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head">
+                    <label for="collapsible-head">* Основы дизайна</label>
+                    <div class="collapsible-text">
+                        <p>Шрифты</p>
+                        <p>Композиция</p>
+                        <p>Цветовой круг</p>
+                        <p>Базовые термины</p>
+                    </div>
+
+                </div>
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head2">
+                    <label for="collapsible-head2">* Графический дизайн</label>
+                    <div class="collapsible-text">
+                        <p>Логотип</p>
+                        <p>Фирменный стиль</p>
+                        <p>Типография</p>
+                    </div>
+
+                </div>
+                <div class="collapsible collapsible-last">
+                    <input type="checkbox" id="collapsible-head3">
+                    <label for="collapsible-head3">* UI/UX дизайн</label>
+                    <div class="collapsible-text">
+                        <p>Введение в UI/UX</p>
+                        <p>Прототипирование</p>
+                        <p>Психология UX</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        </section>
+                <div class="main__right">
+                <div class="image3d">
+                            <img src="./static/img/flying cubes.png" alt="">
+                        </div>
+                    </div>
+         
+
+        
+        <section class="learn" data-aos="fade-down" data-aos-duration="1000">
+            <div class="container">
+                <div class="learn__content" data-aos="fade-down">
+                    <div class="learn__title">
+                        <h2>Выбери раздел дизайна, который хотел бы изучить, а затем и тему раздела. Далее ты попадёшь на страницу с теоретическим уроком, который расскажет тебе все самое основное по выбранной теме. После теории нужно пройти практические задания.</h2>
+                    </div>
+                    <img src="./static/img/Frame 1.png" height="350px" width="1200px">
+                    
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer__content">
+                <ul>
+                    <li><a href="#">Политика оператора</a></li>
+                    <li>Ястребова Дарья</li>
+                    <li><a href="mailto:dashayastrebova@bk.ru">dashayastrebova@bk.ru</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        const image3d = document.querySelector('.image3d');
+
+        // Function to apply random movement
+        function randomMovement() {
+          const moveX = (Math.random() - 0.5) * 20; // Change the factor to adjust the initial movement
+          const moveY = (Math.random() - 0.5) * 20; // Change the factor to adjust the initial movement
+          image3d.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        }
+        
+        // Apply random movement on page load or refresh
+        window.addEventListener('DOMContentLoaded', randomMovement);
+        
+        // Smooth transition and follow mouse movement
+        image3d.addEventListener('mousemove', (e) => {
+          const boundingRect = image3d.getBoundingClientRect();
+          const mouseX = e.clientX - boundingRect.left;
+          const mouseY = e.clientY - boundingRect.top;
+        
+          const moveX = (mouseX - boundingRect.width / 2) / 10;
+          const moveY = (mouseY - boundingRect.height / 2) / 10;
+        
+          image3d.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+        
+        // Smooth transition when leaving the container
+        image3d.addEventListener('mouseleave', () => {
+          image3d.style.transition = 'transform 0.5s ease'; // Apply transition
+          randomMovement(); // Apply random movement
+        });
+        
+        // Reset transition when the transition ends
+        image3d.addEventListener('transitionend', () => {
+          image3d.style.transition = ''; // Reset transition after it ends
+        });
+        
+    </script>
+</body>
+
+</html>
