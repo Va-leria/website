@@ -11,40 +11,8 @@ html{
         margin: 0 auto;
   }
 
-  .header {
-    display: flex;
-    width: 100%;
-    max-width: 1200px;
-    align-items: center;
-    gap: 20px;
-    font-size: 16px;
-    color: #000;
-    font-weight: 300;
-    justify-content: space-between;
-    padding: 0 20px;
-    margin-bottom: 20px;
-  }
-
   .line {
     border-bottom: 1px solid #000;
-  }
-
-  @media (max-width: 1200px) {
-    .header {
-      max-width: 100%;
-      flex-wrap: wrap;
-    }
-  }
-
-  .learning-rules {
-    font-family: 'Unbounded', sans-serif;
-    font-weight: 300;
-    border-radius: 30px;
-    border: 1px solid rgba(0, 0, 0, 1);
-    align-self: stretch;
-    justify-content: center;
-    margin: auto 0;
-    padding: 13px 17px;
   }
 
   .logo {
@@ -53,34 +21,6 @@ html{
     width: 262px;
     align-self: stretch;
     max-width: 100%;
-  }
-
-  .nav {
-    align-self: stretch;
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-    margin: auto 0;
-  }
-
-    @media (max-width: 1200px) {
-    .vacancies {
-      white-space: initial;
-      padding: 0 20px;
-    }
-  }
-
-  .profile {
-    font-family: 'Unbounded', sans-serif;
-    border-radius: 30px;
-    border: 1px solid rgba(0, 0, 0, 1);
-    justify-content: center;
-    padding: 12px 18px;
-  }
-
-  .profile a{
-    text-decoration: none;
-    color: #000;
   }
 
   .divider {
@@ -94,25 +34,6 @@ html{
     .divider {
       max-width: 100%;
     }
-  }
-
-  .vacancies {
-    font-family: 'Unbounded', sans-serif;
-    border-radius: 30px;
-    border: 1px solid rgba(0, 0, 0, 1);
-    white-space: nowrap;
-    justify-content: center;
-    padding: 13px 23px;
-  }
-
-  .vacancies a{
-    text-decoration: none;
-    color: #000;
-  }
-
-  .learning-rules a{
-    text-decoration: none;
-    color: #000;
   }
 
 
@@ -456,30 +377,4 @@ html{
   padding-top: 8px;
   padding-bottom: 8px;
   border-radius: 10px;
-}
-
-footer{
-    margin-bottom: 30px;
-}
-
-.footer__content{
-    max-width: 622px;
-    margin: 0 auto;
-
-}
-.footer__content ul{
-    display: flex;
-
-    justify-content: space-between;
-
-}
-
-.footer__content ul li{
-    font-size: 14px;
-}
-
-.footer__content ul li a{
-    font-size: 14px;
-    text-decoration: underline;
-    color: #000;
 }
