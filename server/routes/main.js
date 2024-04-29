@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('', (req, res) => {
     const locals = {
         title: "Графикус",
-        styles: ["/css/reset.css", "/css/styles.css", "/css/header.css"]
+        styles: ["/css/reset.css", "/css/styles.css", "/css/header.css", "/css/footer.css" ]
     }
 
     res.render('index', { locals });
@@ -34,11 +34,20 @@ router.get('/vacancies', (req, res) => {
 
 router.get('/lk', (req, res) => {
     const locals = {
-        title: "Вакансии",
+        title: "Личный кабинет",
         styles: ["/css/reset.css", "/css/lk_styles.css", "/css/header.css", "/css/footer.css" ]
     }
 
     res.render('lk', { locals });
+});
+
+router.get('/learning', (req, res) => {
+    const locals = {
+        title: "Обучение",
+        styles: ["/css/reset.css", "/css/learn_styles.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('learning', { locals });
 });
 
 module.exports = router;
