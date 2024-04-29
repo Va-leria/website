@@ -1,15 +1,21 @@
-const http = require('http')
-const fs = require('fs')
+const express = require('express');
+const expressLayout = require('express-ejs-layouts');
 
-let server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-type': 'text/html; charset=utf-8'})
-    const stream = fs.createReadStream('./index.html')
-    stream.pipe(res)
-})
+const app = express();
 
 const PORT = 3030
 const HOST = 'localhost'
 
-server.listen(PORT, HOST, () => {
+app.use(express.static('static'));
+
+// Templating Engine
+app.use(expressLayout);
+app.set('layout', './layouts/main');
+app.set('view engine', 'ejs');
+
+
+app.use('/', require('./server/routes/main'));
+
+app.listen(PORT, HOST, () => {
     console.log(`Сервер запущен: http://${HOST}:${PORT}`)
 })
