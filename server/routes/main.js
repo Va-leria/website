@@ -57,13 +57,13 @@ router.get('/signin', (req, res) => {
     res.render('signin', { locals });
 });
 
-router.get('/signout', (req, res) => {
+router.get('/registration', (req, res) => {
     const locals = {
         title: "Регистрация",
         styles: ["/css/reset.css", "/css/reg_styles.css"]
     }
 
-    res.render('signout', { locals });
+    res.render('registration', { locals });
 });
 
 module.exports = router;
