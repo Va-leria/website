@@ -25,8 +25,6 @@ router.get('/vacancies', (req, res) => {
     const locals = {
         title: "Вакансии",
         styles: ["/css/reset.css", "/css/vacancies_styles.css", "/css/header.css", "/css/footer.css" ]
-        // styles: ["/css/vacancies_styles.css"]
-
     }
 
     res.render('vacancies', { locals });
