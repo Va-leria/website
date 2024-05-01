@@ -10,6 +10,21 @@ const jwtSecret = process.env.JWT_SECRET;
 
 const jsonParser = bodyParser.json()
 
+const authorization = (req, res, next) => {
+    const token = req.cookies.access_token;
+    if (!token) {
+      res.redirect('/signin_test');
+    }
+    try {
+      const data = jwt.verify(token, jwtSecret);
+      req.userId = data.id;
+      req.userLogin = data.login;
+      return next();
+    } catch {
+        res.redirect('/signin_test');
+    }
+  };
+
 
 // Routes
 router.get('', (req, res) => {
@@ -39,12 +54,12 @@ router.get('/vacancies', (req, res) => {
     res.render('vacancies', { locals });
 });
 
-router.get('/lk', (req, res) => {
+router.get('/lk', authorization, (req, res) => {
     const locals = {
         title: "Личный кабинет",
         styles: ["/css/reset.css", "/css/lk_styles.css", "/css/header.css", "/css/footer.css" ]
     }
-
+    console.log(req.userLogin)
     res.render('lk', { locals });
 });
 
@@ -126,13 +141,21 @@ router.post('/login_test', jsonParser, async (req, res) => {
     const hashedPassword = bcrypt.hashSync(password, salt)
 
     try {
-        const newUser = await pool.query(
-            'INSERT INTO users (login, hashed_password, email) VALUES ($1, $2, $3) RETURNING id',
-            [login, hashedPassword, email]
-        )
-        const token = jwt.sign({login: login, userId: newUser.rows[0].id}, jwtSecret, {expiresIn: '1h'});
-        res.cookie('access_token', token, {httpOnly: true});
-        res.redirect('/')
+        // Checking of the user's existence
+        const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
+        if (user.rows.length) {
+            console.log('User already exist')
+            return res.status(401).json( { message: 'User already exist. Please signin' } );
+        }
+        else { 
+            const newUser = await pool.query(
+                'INSERT INTO users (login, hashed_password, email) VALUES ($1, $2, $3) RETURNING id',
+                [login, hashedPassword, email]
+            )
+            const token = jwt.sign({login: login, userId: newUser.rows[0].id}, jwtSecret, {expiresIn: '1h'});
+            res.cookie('access_token', token, {httpOnly: true});
+            res.redirect('/')
+        }
         
     } catch (err) {
         console.error(err)
