@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
-// const popup = require('popups');
-var bodyParser = require('body-parser')
-const bcrypt = require('bcryptjs');
+ bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 const pool = require('../../db')
 
+require('dotenv').config()
+const jwtSecret = process.env.JWT_SECRET;
 
-var jsonParser = bodyParser.json()
+const jsonParser = bodyParser.json()
 
 
 // Routes
@@ -84,35 +85,30 @@ router.get('/signin_test', (req, res) => {
 });
 
 router.post('/signin_test', jsonParser, async (req, res) => {
-    var url = req.body;
+    const { login, password } = req.body
+    
     try {
-        const users = await pool.query('SELECT * FROM users')
-        console.log(users)
+        const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
+        if (!user.rows.length) {
+            console.log('User does not exist')
+            return res.status(401).json( { message: 'Invalid credentials' } );
+        } 
+        else {
+            const isPasswordValid = await bcrypt.compare(password, user.rows[0].hashed_password);
+            
+            if(!isPasswordValid) {
+                console.log('Invalid password')
+                return res.status(401).json( { message: 'Invalid credentials' } );
+            }
+            else {
+                const token = jwt.sign({login: user.rows[0].login, userId: user.rows[0].id}, jwtSecret, {expiresIn: '1h'});
+                res.cookie('access_token', token, {httpOnly: true});
+                res.redirect('/')
+            }
+        }    
     } catch (err) {
         console.error(err)
     }
-    
-    console.log(Object.assign({}, ...[Object.entries(url)[0], Object.entries(url)[1]].map(([k, v]) => ({[k]: v}))))
-    const token = jwt.sign({
-        email: 'fvffs',
-        userId: 5
-     }, 'yourSecretKey', {
-        expiresIn: '1h', // Token expiration time
-     });
-
-     // Set the token as an HTTP-only cookie
-     res.cookie('token', token, {
-        httpOnly: true
-     });
-    var x = 5
-    if (x < 4) {
-        res.redirect('/');
-      } else {
-        res.redirect('/');
-        // popup.alert({
-        //     content: 'Hello!'
-        // });
-      }
 });
 
 module.exports = router;
