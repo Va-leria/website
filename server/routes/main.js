@@ -66,13 +66,13 @@ router.get('/signin', (req, res) => {
     res.render('signin', { locals });
 });
 
-router.get('/registration', (req, res) => {
+router.get('/login', (req, res) => {
     const locals = {
         title: "Регистрация",
         styles: ["/css/reset.css", "/css/reg_styles.css"]
     }
 
-    res.render('registration', { locals });
+    res.render('login', { locals });
 });
 
 router.get('/signin_test', (req, res) => {
@@ -86,7 +86,7 @@ router.get('/signin_test', (req, res) => {
 
 router.post('/signin_test', jsonParser, async (req, res) => {
     const { login, password } = req.body
-    
+
     try {
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
         if (!user.rows.length) {
@@ -111,4 +111,38 @@ router.post('/signin_test', jsonParser, async (req, res) => {
     }
 });
 
+router.get('/login_test', (req, res) => {
+    const locals = {
+        title: "Регистрация",
+        styles: ["/css/reset.css", "/css/reg_styles.css"]
+    }
+
+    res.render('login_test', { locals });
+});
+
+router.post('/login_test', jsonParser, async (req, res) => {
+    const { login, password, email } = req.body
+    const salt = bcrypt.genSaltSync(5)
+    const hashedPassword = bcrypt.hashSync(password, salt)
+
+    try {
+        const newUser = await pool.query(
+            'INSERT INTO users (login, hashed_password, email) VALUES ($1, $2, $3) RETURNING id',
+            [login, hashedPassword, email]
+        )
+        const token = jwt.sign({login: login, userId: newUser.rows[0].id}, jwtSecret, {expiresIn: '1h'});
+        res.cookie('access_token', token, {httpOnly: true});
+        res.redirect('/')
+        
+    } catch (err) {
+        console.error(err)
+    }
+});
+
+    // const login = 'fuck'
+    // const password = 'fuck_pass'
+    // const salt = bcrypt.genSaltSync(5)
+    // const hashedPassword = bcrypt.hashSync(password, salt)
+
+    // await pool.query(' INSERT INTO users (login, hashed_password) VALUES ($1, $2)', [login, hashedPassword])
 module.exports = router;
