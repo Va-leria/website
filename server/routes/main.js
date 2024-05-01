@@ -59,8 +59,11 @@ router.get('/lk', authorization, (req, res) => {
         title: "Личный кабинет",
         styles: ["/css/reset.css", "/css/lk_styles.css", "/css/header.css", "/css/footer.css" ]
     }
-    console.log(req.userLogin)
-    res.render('lk', { locals });
+    const data = {
+        login: req.userLogin
+    }
+    // console.log(req.userLogin)
+    res.render('lk', { locals, data });
 });
 
 router.get('/learning', (req, res) => {
