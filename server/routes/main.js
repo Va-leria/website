@@ -139,6 +139,11 @@ router.post('/login_test', jsonParser, async (req, res) => {
     }
 });
 
+router.get('/logout', (req, res) => {
+    res.clearCookie("access_token")
+    res.redirect('/')
+});
+
     // const login = 'fuck'
     // const password = 'fuck_pass'
     // const salt = bcrypt.genSaltSync(5)
