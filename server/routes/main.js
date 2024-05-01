@@ -1,5 +1,13 @@
 const express = require('express');
 const router = express.Router();
+// const popup = require('popups');
+var bodyParser = require('body-parser')
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const pool = require('../../db')
+
+
+var jsonParser = bodyParser.json()
 
 
 // Routes
@@ -64,6 +72,47 @@ router.get('/registration', (req, res) => {
     }
 
     res.render('registration', { locals });
+});
+
+router.get('/signin_test', (req, res) => {
+    const locals = {
+        title: "Вход",
+        styles: ["/css/reset.css", "/css/vhod_styles.css"]
+    }
+
+    res.render('signin_test', { locals });
+});
+
+router.post('/signin_test', jsonParser, async (req, res) => {
+    var url = req.body;
+    try {
+        const users = await pool.query('SELECT * FROM users')
+        console.log(users)
+    } catch (err) {
+        console.error(err)
+    }
+    
+    console.log(Object.assign({}, ...[Object.entries(url)[0], Object.entries(url)[1]].map(([k, v]) => ({[k]: v}))))
+    const token = jwt.sign({
+        email: 'fvffs',
+        userId: 5
+     }, 'yourSecretKey', {
+        expiresIn: '1h', // Token expiration time
+     });
+
+     // Set the token as an HTTP-only cookie
+     res.cookie('token', token, {
+        httpOnly: true
+     });
+    var x = 5
+    if (x < 4) {
+        res.redirect('/');
+      } else {
+        res.redirect('/');
+        // popup.alert({
+        //     content: 'Hello!'
+        // });
+      }
 });
 
 module.exports = router;
