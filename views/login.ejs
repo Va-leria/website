@@ -12,27 +12,31 @@
     количество интерактивных заданий, поэтому скорее входи на платформу и приступай!
 </p>
 
-<div class="text-field">
-    <ul>
-        <li>
-            <label class="text-field__label" for="login"></label>
-            <input class="text-field__input" type="text" name="login" id="login" placeholder="Login" value="логин">
-        </li>
-        <li>
-            <label class="text-field__label" for="password"></label>
-            <input class="text-field__input" type="text" name="password" id="password" placeholder="Password" value="пароль">
-        </li>
-        <li>
 
-            <label class="text-field__label" for="number"></label>
-            <input class="text-field__input" type="text" name="number" id="number" placeholder="Number" value="номер телефона">
-        </li>
-    </ul>
-</div>
+<form id="login_form" action="/login" method="POST">
+    <div class="text-field">
+        <ul>
+            <li>
+                <label class="text-field__label" for="login"></label>
+                <input class="text-field__input" type="text" name="username" id="username" placeholder="Имя фамилия">
+            </li>
+            <li>
+                <label class="text-field__label" for="login"></label>
+                <input class="text-field__input" type="text" name="login" id="login" placeholder="Login">
+            </li>
+            <li>
+                <label class="text-field__label" for="password"></label>
+                <input class="text-field__input" type="text" name="password" id="password" placeholder="Password">
+            </li>
+            <li>
+                <label class="text-field__label" for="email"></label>
+                <input class="text-field__input" type="text" name="email" id="email" placeholder="Email">
+            </li>
+        </ul>
+    </div>
+    <button class="reg__button" type="submit">РЕГИСТРАЦИЯ</button>
+</form>
 
-<div class="reg__button">
-    <a href="/">РЕГИСТРАЦИЯ</a>
-</div>
 
 <img class="rings-clay" src="/img/Rings clay 1.png" />
 <img class="telephone-wire-clay" src="/img/Telephone wire clay 2.png" />

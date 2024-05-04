@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
- bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const pool = require('../../db')
@@ -13,7 +13,7 @@ const jsonParser = bodyParser.json()
 const authorization = (req, res, next) => {
     const token = req.cookies.access_token;
     if (!token) {
-      res.redirect('/signin_test');
+      res.redirect('/signin');
     }
     try {
       const data = jwt.verify(token, jwtSecret);
@@ -21,7 +21,7 @@ const authorization = (req, res, next) => {
       req.userLogin = data.login;
       return next();
     } catch {
-        res.redirect('/signin_test');
+        res.redirect('/signin');
     }
   };
 
@@ -84,25 +84,7 @@ router.get('/signin', (req, res) => {
     res.render('signin', { locals });
 });
 
-router.get('/login', (req, res) => {
-    const locals = {
-        title: "Регистрация",
-        styles: ["/css/reset.css", "/css/reg_styles.css"]
-    }
-
-    res.render('login', { locals });
-});
-
-router.get('/signin_test', (req, res) => {
-    const locals = {
-        title: "Вход",
-        styles: ["/css/reset.css", "/css/vhod_styles.css"]
-    }
-
-    res.render('signin_test', { locals });
-});
-
-router.post('/signin_test', jsonParser, async (req, res) => {
+router.post('/signin', jsonParser, async (req, res) => {
     const { login, password } = req.body
 
     try {
@@ -129,18 +111,18 @@ router.post('/signin_test', jsonParser, async (req, res) => {
     }
 });
 
-router.get('/login_test', (req, res) => {
+router.get('/login', (req, res) => {
     const locals = {
         title: "Регистрация",
         styles: ["/css/reset.css", "/css/reg_styles.css"]
     }
 
-    res.render('login_test', { locals });
+    res.render('login', { locals });
 });
 
-router.post('/login_test', jsonParser, async (req, res) => {
-    const { login, password, email } = req.body
-    const salt = bcrypt.genSaltSync(5)
+router.post('/login', jsonParser, async (req, res) => {
+    const { username, login, password, email } = req.body
+    const salt = bcrypt.genSaltSync(5) 
     const hashedPassword = bcrypt.hashSync(password, salt)
 
     try {
@@ -152,8 +134,8 @@ router.post('/login_test', jsonParser, async (req, res) => {
         }
         else { 
             const newUser = await pool.query(
-                'INSERT INTO users (login, hashed_password, email) VALUES ($1, $2, $3) RETURNING id',
-                [login, hashedPassword, email]
+                'INSERT INTO users (username, login, hashed_password, email) VALUES ($1, $2, $3, $4) RETURNING id',
+                [username, login, hashedPassword, email]
             )
             const token = jwt.sign({login: login, userId: newUser.rows[0].id}, jwtSecret, {expiresIn: '1h'});
             res.cookie('access_token', token, {httpOnly: true});
@@ -170,10 +152,4 @@ router.get('/logout', (req, res) => {
     res.redirect('/')
 });
 
-    // const login = 'fuck'
-    // const password = 'fuck_pass'
-    // const salt = bcrypt.genSaltSync(5)
-    // const hashedPassword = bcrypt.hashSync(password, salt)
-
-    // await pool.query(' INSERT INTO users (login, hashed_password) VALUES ($1, $2)', [login, hashedPassword])
 module.exports = router;
