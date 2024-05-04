@@ -13,7 +13,7 @@
               <br />
               которые хотят нанять специалистов.
             </div>
-            <img loading="lazy" src="/img/ЛОГО.png" class="img" />
+            <img loading="lazy" src="/img/logo.png" class="img" />
           </div>
         </div>
         <div class="column-2">
@@ -196,6 +196,22 @@
       </section>
     </div>
 </div>
+
+<script>
+  var showMoreButtons = document.querySelectorAll(".vacancies__button-showmore");
+  
+  showMoreButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+      var hiddenText = this.closest(".vacancies__content-cart").querySelector(".vacancies__cart-hidden_text");
+      hiddenText.classList.toggle("text-visible");
+      if (this.textContent === "Узнать подробнее") {
+        this.textContent = "Скрыть подробности";
+      } else {
+        this.textContent = "Узнать подробнее";
+      }
+    });
+  });
+</script>
 
 <!-- Footer -->
 <%- include('./layouts/footer.ejs') %>

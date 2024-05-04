@@ -54,16 +54,31 @@ router.get('/vacancies', (req, res) => {
     res.render('vacancies', { locals });
 });
 
-router.get('/lk', authorization, (req, res) => {
+router.get('/lk', authorization, async (req, res) => {
     const locals = {
         title: "Личный кабинет",
         styles: ["/css/reset.css", "/css/lk_styles.css", "/css/header.css", "/css/footer.css" ]
     }
-    const data = {
-        login: req.userLogin
+    try {
+        const user = await pool.query('SELECT * FROM users WHERE login = $1', [req.userLogin]);
+        console.log(user)
+        const data = {
+            login: req.userLogin,
+            username: user.rows[0].username
+        }
+        res.render('lk', { locals, data });
+    } catch (err) {
+        console.log(err)
     }
-    // console.log(req.userLogin)
-    res.render('lk', { locals, data });
+});
+
+router.get('/lesson1', (req, res) => {
+    const locals = {
+        title: "Урок1",
+        styles: ["/css/reset.css", "/css/vacancies_styles.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('vacancies', { locals });
 });
 
 router.get('/learning', (req, res) => {
