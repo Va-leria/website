@@ -74,7 +74,7 @@ router.get('/lk', authorization, async (req, res) => {
 
 router.get('/lesson1', (req, res) => {
     const locals = {
-        title: "Урок1",
+        title: "Урок",
         styles: ["/css/reset.css", "/css/vacancies_styles.css", "/css/header.css", "/css/footer.css" ]
     }
 
