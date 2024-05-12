@@ -72,13 +72,13 @@ router.get('/lk', authorization, async (req, res) => {
     }
 });
 
-router.get('/lesson1', (req, res) => {
+router.get('/lesson_color', (req, res) => {
     const locals = {
-        title: "Урок",
-        styles: ["/css/reset.css", "/css/vacancies_styles.css", "/css/header.css", "/css/footer.css" ]
+        title: "Урок по цветам",
+        styles: ["/css/reset.css", "/css/lesson color.css", "/css/header.css", "/css/footer.css" ]
     }
 
-    res.render('vacancies', { locals });
+    res.render('lesson)color', { locals });
 });
 
 router.get('/learning', (req, res) => {
