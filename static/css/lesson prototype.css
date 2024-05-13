@@ -11,7 +11,7 @@ html{
 }
 .main { 
     background-color:rgba(251.45833164453506, 248.14048647880554, 238.18690538406372, 1);
-    width:1400px;
+    width:1200px;
     height:1403px;
     position:absolute;
 }
@@ -20,8 +20,8 @@ html{
     width:252px;
     height:25px;
     position:absolute;
-    left:574px;
-    top:47px;
+    left:474px;
+    top:30px;
     font-family:Unbounded;
     text-align:left;
     font-size:20px;
@@ -33,9 +33,10 @@ html{
     width:1200px;
     height:60px;
     position:absolute;
-    left:101px;
-    top:102px;
+    left:20px;
+    top:80px;
     font-family:Unbounded;
+    line-height: 18px;
     text-align:left;
     font-size:14px;
     letter-spacing:0;
@@ -45,9 +46,10 @@ html{
     width:577px;
     height:70px;
     position:absolute;
-    left:100px;
-    top:192px;
+    left:20px;
+    top:172px;
     font-family:Unbounded;
+    line-height: 18px;
     text-align:left;
     font-size:14px;
     letter-spacing:0;
@@ -57,9 +59,10 @@ html{
     width:560px;
     height:68px;
     position:absolute;
-    left:100px;
-    top:292px;
+    left:20px;
+    top:272px;
     font-family:Unbounded;
+    line-height: 18px;
     text-align:left;
     font-size:14px;
     letter-spacing:0;
@@ -69,9 +72,10 @@ html{
     width:632px;
     height:140px;
     position:absolute;
-    left:100px;
-    top:390px;
+    left:20px;
+    top:370px;
     font-family:Unbounded;
+    line-height: 18px;
     text-align:left;
     font-size:14px;
     letter-spacing:0;
@@ -81,8 +85,8 @@ html{
     width:886px;
     height:17px;
     position:absolute;
-    left:258px;
-    top:578px;
+    left:190px;
+    top:568px;
     font-family:Unbounded;
     text-align:left;
     font-size:14px;
@@ -93,9 +97,10 @@ html{
     width:614px;
     height:385px;
     position:absolute;
-    left:101px;
+    left:20px;
     top:661px;
     font-family:Unbounded;
+    line-height: 18px;
     text-align:left;
     font-size:14px;
     letter-spacing:0;
@@ -105,7 +110,7 @@ html{
     width:738px;
     height:104px;
     position:absolute;
-    left:331px;
+    left:250px;
     top:1143px;
     border-top-left-radius:20px;
     border-top-right-radius:20px;
@@ -117,9 +122,10 @@ html{
     width:594px;
     height:51px;
     position:absolute;
-    left:403px;
+    left:303px;
     top:1164px;
     font-family:Unbounded;
+    line-height: 18px;
     text-align:center;
     font-size:14px;
     letter-spacing:0;
@@ -130,7 +136,7 @@ html{
     width:280px;
     height:59px;
     position:absolute;
-    left:564px;
+    left:500px;
     top:1297px;
     border-top-left-radius:50px;
     border-top-right-radius:50px;
@@ -153,8 +159,8 @@ html{
     width:568px;
     height:410px;
     position:absolute;
-    left:733px;
-    top:649px;
+    left:633px;
+    top:669px;
     background-repeat:no-repeat;
     background-size:cover;
 }
@@ -166,9 +172,8 @@ html{
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    left:764px;
-    top:192px;
-    background-image:url(images/image_64.png);
+    left:700px;
+    top:300px;
     background-repeat:no-repeat;
     background-size:cover;
 }

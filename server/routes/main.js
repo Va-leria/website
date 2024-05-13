@@ -78,7 +78,79 @@ router.get('/lesson_color', (req, res) => {
         styles: ["/css/reset.css", "/css/lesson color.css", "/css/header.css", "/css/footer.css" ]
     }
 
-    res.render('lesson)color', { locals });
+    res.render('lesson_color', { locals });
+});
+
+router.get('/lesson_comp', (req, res) => {
+    const locals = {
+        title: "Урок по композиции",
+        styles: ["/css/reset.css", "/css/lesson comp.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_comp', { locals });
+});
+
+router.get('/lesson_font', (req, res) => {
+    const locals = {
+        title: "Урок по шрифтам",
+        styles: ["/css/reset.css", "/css/lesson font.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_font', { locals });
+});
+
+router.get('/lesson_fs', (req, res) => {
+    const locals = {
+        title: "Урок по фирменному стилю",
+        styles: ["/css/reset.css", "/css/lesson fs.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_fs', { locals });
+});
+
+router.get('/lesson_int', (req, res) => {
+    const locals = {
+        title: "Урок по видам интерфейсов",
+        styles: ["/css/reset.css", "/css/lesson int.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_int', { locals });
+});
+
+router.get('/lesson_logo', (req, res) => {
+    const locals = {
+        title: "Урок по логотипам",
+        styles: ["/css/reset.css", "/css/lesson logo.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_logo', { locals });
+});
+
+router.get('/lesson_pol', (req, res) => {
+    const locals = {
+        title: "Урок по полиграфии",
+        styles: ["/css/reset.css", "/css/lesson pol.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_pol', { locals });
+});
+
+router.get('/lesson_prototype', (req, res) => {
+    const locals = {
+        title: "Прототипирование",
+        styles: ["/css/reset.css", "/css/lesson prototype.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_prototype', { locals });
+});
+
+router.get('/lesson_ui_ux', (req, res) => {
+    const locals = {
+        title: "Введение в UI/UX дизайн",
+        styles: ["/css/reset.css", "/css/lesson ui_ux.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_ui_ux', { locals });
 });
 
 router.get('/learning', (req, res) => {

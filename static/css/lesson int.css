@@ -10,7 +10,7 @@ html{
 }
 .e543_377 { 
 	background-color:rgba(251.45833164453506, 248.14048647880554, 238.18690538406372, 1);
-	width:1400px;
+	width:1200px;
 	height:2218px;
 	position:absolute;
 }
@@ -19,8 +19,8 @@ html{
 	width:267px;
 	height:25px;
 	position:absolute;
-	left:567px;
-	top:76px;
+	left:467px;
+	top:30px;
 	font-family:Unbounded;
 	font-weight: bold;
 	text-align:left;
@@ -32,9 +32,10 @@ html{
 	width:1200px;
 	height:70px;
 	position:absolute;
-	left:101px;
+	left:20px;
 	top:145px;
 	font-family:Unbounded;
+	line-height: 18px;
 	text-align:left;
 	font-size:14px;
 	letter-spacing:0;
@@ -45,7 +46,7 @@ html{
 	width:273px;
 	height:59px;
 	position:absolute;
-	left:565px;
+	left:450px;
 	top:2083px;
 	border-top-left-radius:50px;
 	border-top-right-radius:50px;
@@ -69,7 +70,7 @@ html{
 	width:569px;
 	height:587px;
 	position:absolute;
-	left:101px;
+	left:20px;
 	top:259px;
 	border-top-left-radius:20px;
 	border-top-right-radius:20px;
@@ -83,7 +84,7 @@ html{
 	width:570px;
 	height:548px;
 	position:absolute;
-	left:100px;
+	left:20px;
 	top:890px;
 	border-top-left-radius:20px;
 	border-top-right-radius:20px;
@@ -92,10 +93,10 @@ html{
 }
 .e545_431 { 
 	background-color:rgba(244.0000006556511, 238.00000101327896, 221.00000202655792, 1);
-	width:1199px;
+	width:1150px;
 	height:531px;
 	position:absolute;
-	left:101px;
+	left:20px;
 	top:1495px;
 	border-top-left-radius:20px;
 	border-top-right-radius:20px;
@@ -107,7 +108,7 @@ html{
 	width:569px;
 	height:587px;
 	position:absolute;
-	left:732px;
+	left:620px;
 	top:259px;
 	border-top-left-radius:20px;
 	border-top-right-radius:20px;
@@ -121,7 +122,7 @@ html{
 	width:569px;
 	height:548px;
 	position:absolute;
-	left:731px;
+	left:620px;
 	top:890px;
 	border-top-left-radius:20px;
 	border-top-right-radius:20px;
@@ -133,8 +134,9 @@ html{
 	width:523px;
 	height:207px;
 	position:absolute;
-	left:117px;
+	left:50px;
 	top:582px;
+	line-height: 18px;
 	text-align:left;
 	font-size:14px;
 	letter-spacing:0;
@@ -144,9 +146,10 @@ html{
 	width:527px;
 	height:252px;
 	position:absolute;
-	left:757px;
+	left:650px;
 	top:582px;
 	text-align:left;
+	line-height: 18px;
 	font-size:14px;
 	letter-spacing:0;
 }
@@ -155,9 +158,10 @@ html{
 	width:523px;
 	height:155px;
 	position:absolute;
-	left:123px;
+	left:50px;
 	top:1189px;
 	text-align:left;
+	line-height: 18px;
 	font-size:14px;
 	letter-spacing:0;
 }
@@ -166,9 +170,10 @@ html{
 	width:527px;
 	height:241px;
 	position:absolute;
-	left:757px;
+	left:650px;
 	top:1189px;
 	text-align:left;
+	line-height: 18px;
 	font-size:14px;
 	letter-spacing:0;
 }
@@ -177,9 +182,10 @@ html{
 	width:1177px;
 	height:220px;
 	position:absolute;
-	left:123px;
-	top:1777px;
+	left:50px;
+	top:1800px;
 	text-align:left;
+	line-height: 18px;
 	font-size:14px;
 	letter-spacing:0;
 }
@@ -187,7 +193,7 @@ html{
 	width:471px;
 	height:235px;
 	position:absolute;
-	left:143px;
+	left:70px;
 	top:301px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -200,7 +206,7 @@ html{
 	width:417px;
 	height:235px;
 	position:absolute;
-	left:808px;
+	left:700px;
 	top:301px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -213,7 +219,7 @@ html{
 	width:414px;
 	height:256px;
 	position:absolute;
-	left:178px;
+	left:100px;
 	top:908px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -226,7 +232,7 @@ html{
 	width:462px;
 	height:231px;
 	position:absolute;
-	left:785px;
+	left:680px;
 	top:920px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -239,7 +245,7 @@ html{
 	width:360px;
 	height:224px;
 	position:absolute;
-	left:123px;
+	left:50px;
 	top:1523px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -252,7 +258,7 @@ html{
 	width:272px;
 	height:224px;
 	position:absolute;
-	left:564px;
+	left:460px;
 	top:1523px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -265,7 +271,7 @@ html{
 	width:352px;
 	height:224px;
 	position:absolute;
-	left:917px;
+	left:780px;
 	top:1523px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;

@@ -187,8 +187,18 @@ body{
     top: -100%;
     opacity: 0.5;
     transition: all 0.3s ease;
+    
  }
 
+ .collapsible-text a{
+    text-decoration: none;
+    color: #000;
+ }
+
+ .p {
+    text-decoration: none;
+    color: #000;
+ }
 
 
 .collapsible input:checked ~ .collapsible-text{
