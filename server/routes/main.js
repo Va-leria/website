@@ -73,29 +73,108 @@ router.get('/lk', authorization, async (req, res) => {
     }
 });
 
-router.get('/lesson1', (req, res) => {
+router.get('/lesson_color', (req, res) => {
     const locals = {
-        title: "Урок",
-        styles: ["/css/reset.css", "/css/vacancies_styles.css", "/css/header.css", "/css/footer.css", "/css/test_game.css" ]
+        title: "Урок по цветам",
+        styles: ["/css/reset.css", "/css/lesson color.css", "/css/header.css", "/css/footer.css" ]
     }
     // res.send(Alert);
     // window.location.reload();
 
-    res.render('test_game', { locals });
+    res.render('lesson_color', { locals });
 });
 
-router.get('/lesson2', (req, res) => {
+router.get('/lesson_comp', (req, res) => {
     const locals = {
-        title: "Урок",
-        styles: ["/css/test_game.css", "/css/reset.css", "/css/vacancies_styles.css", "/css/header.css", "/css/footer.css" ]
+        title: "Урок по композиции",
+        styles: ["/css/reset.css", "/css/lesson comp.css", "/css/header.css", "/css/footer.css" ]
     }
-    // res.send(Alert);
-    // window.location.reload();
 
-    res.render('test_game2', { locals });
+    res.render('lesson_comp', { locals });
 });
 
-router.get('/learning', authorization, (req, res) => {
+router.get('/lesson_font', (req, res) => {
+    const locals = {
+        title: "Урок по шрифтам",
+        styles: ["/css/reset.css", "/css/lesson font.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_font', { locals });
+});
+
+router.get('/lesson_fs', (req, res) => {
+    const locals = {
+        title: "Урок по фирменному стилю",
+        styles: ["/css/reset.css", "/css/lesson fs.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_fs', { locals });
+});
+
+router.get('/lesson_int', (req, res) => {
+    const locals = {
+        title: "Урок по видам интерфейсов",
+        styles: ["/css/reset.css", "/css/lesson int.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_int', { locals });
+});
+
+router.get('/lesson_logo', (req, res) => {
+    const locals = {
+        title: "Урок по логотипам",
+        styles: ["/css/reset.css", "/css/lesson logo.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_logo', { locals });
+});
+
+router.get('/lesson_pol', (req, res) => {
+    const locals = {
+        title: "Урок по полиграфии",
+        styles: ["/css/reset.css", "/css/lesson pol.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_pol', { locals });
+});
+
+router.get('/lesson_prototype', (req, res) => {
+    const locals = {
+        title: "Прототипирование",
+        styles: ["/css/reset.css", "/css/lesson prototype.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_prototype', { locals });
+});
+
+router.get('/lesson_ui_ux', (req, res) => {
+    const locals = {
+        title: "Введение в UI/UX дизайн",
+        styles: ["/css/reset.css", "/css/lesson ui_ux.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('lesson_ui_ux', { locals });
+});
+
+router.get('/drag_comp', (req, res) => {
+    const locals = {
+        title: "Практика по уроку композиция",
+        styles: ["/css/reset.css", "/css/drag_styles.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('drag_comp', { locals });
+});
+
+router.get('/test_fonts', (req, res) => {
+    const locals = {
+        title: "Практика по шрифтам",
+        styles: ["/css/reset.css", "/css/test_fonts.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('test_fonts', { locals });
+});
+
+router.get('/learning', authorization,  (req, res) => {
     const locals = {
         title: "Обучение",
         styles: ["/css/reset.css", "/css/learn_styles.css", "/css/header.css", "/css/footer.css" ]
@@ -104,26 +183,26 @@ router.get('/learning', authorization, (req, res) => {
     res.render('learning', { locals });
 });
 
-router.get('/signin', (req, res) => {
+router.get('/signin', async (req, res) => {
     const locals = {
         title: "Вход",
         styles: ["/css/reset.css", "/css/vhod_styles.css"],
         error: ""
     }
-
+    const test = await pool.query('SELECT * FROM users');
+            console.log(test)
     res.render('signin', { locals });
 });
 
 router.post('/signin', jsonParser, async (req, res) => {
     const { login, password } = req.body
-    const locals = {
-        title: "Вход",
-        styles: ["/css/reset.css", "/css/vhod_styles.css"],
-        error: ""
-    }
-
+    console.log(login)
+    console.log(password)
     try {
+        const test = await pool.query('SELECT * FROM users');
+        console.log(test)
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
+        console.log(user)
         if (!user.rows.length) {
             console.log('User does not exist')
             locals.error = 'Invalid credentials'

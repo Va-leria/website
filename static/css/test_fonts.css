@@ -1,0 +1,205 @@
+
+@import "null.css";
+html{
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 300;
+    box-sizing: border-box;
+    font-size: 18px;
+    
+}
+body{
+    background: #577590;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Предупреждение */
+.warning{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* Тест на skills верстальщика */
+.quiz {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #FBF8EE;
+}
+
+.quiz__header{
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Unbounded;
+}
+
+.quiz__progress {
+    height: 10px;
+    border-radius: 30px;
+    background-color: rgb(232, 232, 232);
+}
+
+.quiz__progress-inner {
+    height: 100%;
+    border-radius: 30px;
+    width: 70%;
+    background:  rgb(247,122,7);
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(274deg, rgba(247,122,7,1) 0%, rgba(151,204,4,1) 100%);
+}
+
+.quiz__content{
+    padding: 30px 30px 20px;
+    flex: 1 0 auto;
+}
+
+.quiz__title{
+    font-size: 25px;
+    font-weight: 500;
+    font-family: Unbounded;
+}
+
+.quiz__list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    padding: 20px 0px;
+    font-family: Unbounded;
+}
+
+.quiz__list li{
+    font-family: Unbounded;
+}
+
+.quiz__option {
+    background: #D9E2EA;
+    border: 1px solid #577590;
+    border-radius: 5px;
+    padding: 8px 15px;
+    min-height: 44px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quiz__option:hover{
+    color: #577590;
+    background: #F4EEDD;
+    border: 1px solid #ECDEB6;
+}
+
+.quiz__option.correct{
+    color: #97CC04;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.quiz__option.incorrect{
+    color: #FB7C08;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.quiz__option.disabled{
+    pointer-events: none;
+}
+
+.quiz__footer{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid lightgrey;
+}
+
+.quiz__total{
+    display: flex;
+    align-items: center;
+    font-family: Unbounded;
+}
+
+.quiz__next-btn{
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
+    font-family:Unbounded;
+    font-weight: 300;
+    color: #FBF8EE;
+    border-radius: 5px;
+    background: #577590;
+    border: 1px solid #577590;
+}
+
+/* Выводим результаты теста */
+.result{
+    max-width: 450px;
+    width: 100%;
+    background-color: #FBF8EE;
+    border-radius: 10px;
+    padding: 20px 10px;
+}
+
+.result__img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result__img img{
+    max-width: 200px;
+    width: 100%;
+}
+
+.result__title{
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+    font-family: 'Unbounded';
+}
+
+.result__text{
+    margin: 15px 0;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.result__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result__restart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid #577590;
+    color: #577590;
+    background: #FBF8EE;
+}
+
+.result__restart:hover{
+    color: #FBF8EE;
+    background: #577590;
+}
+

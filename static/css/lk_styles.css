@@ -196,10 +196,15 @@ html{
     margin-top: 100px;
     padding: 15px 20px;
     color: #fbf8ee;
-    width: 206px;
+    width: 250px;
     font: 300 16px Unbounded, sans-serif;
     background-color: #577590;
     border-radius: 20px;
+  }
+
+  .logout-button a{
+    text-decoration: none;
+    color: #fbf8ee;
   }
 
   @media (max-width: 1200px) {
