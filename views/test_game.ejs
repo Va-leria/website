@@ -1,0 +1,199 @@
+<%- include('./layouts/header.ejs') %>
+<div class="app-menu-button">
+    <div class="app-menu-icon top"></div>
+    <div class="app-menu-icon middle"></div>
+    <div class="app-menu-icon bottom"></div>
+  </div>
+  <div id="menu-overlay" class="menu-overlay"></div>
+  <div id="menu" class="menu">
+    <div class="menu-item">
+      <a href="#" id="menu-restart">Start Over</a>
+    </div>
+    <!-- <div class="menu-item">
+      <a href="https://method.ac/writing/articles/about_kern_type.html" target="_blank">About this game</a>
+    </div> -->
+    <!-- <div class="menu-item">
+      <a href="https://tally.so/r/3XJPWL" target="_blank">Report a bug</a>
+    </div> -->
+    <!-- <div class="menu-item">
+      <a href="https://method.ac/writing/change_logs/change_log_for_kerntype.html" target="_blank">Change log</a>
+    </div> -->
+    <!-- <div class="menu-item">
+      <a href="/stats.html" target="_blank">Visitor stats</a>
+    </div> -->
+    <!-- <div class="menu-separator"></div>
+      <div class="menu-item">
+      <a href="https://method.ac" id="back-to-home" target="_blank">
+        <div class="logo">
+          <svg width="12" height="12" viewBox="0 0 11 11">
+            <path style="fill: var(--z10)" d="M11 0L0 11h11z"></path><path style="fill: var(--z13)" d="M0 0l11 11H0z"></path>
+          </svg>
+        </div>
+        <div class="home">Method of Action</div>
+      </a>
+    </div> -->
+  </div>
+  <div id="app">
+    <!-- <header>
+      <h1>
+        <div class="K">K</div>
+        <div class="E">E</div>
+        <div class="R">R</div>
+        <div class="N">N</div>
+        <div class="T">T</div>
+        <div class="Y">Y</div>
+        <div class="P">P</div>
+        <div class="e">E</div>
+      </h1>
+       <p class="desk-only">a letter spacing game</p>
+    </header> -->
+    <div id="container">
+      <div class="stage">
+        <svg xmlns="http://www.w3.org/2000/svg" class="root" id="root" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+      <div id="message" class="message hidden">
+        <div class="message-icon">
+           <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9C4.63 15.55 4 13.85 4 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1C19.37 8.45 20 10.15 20 12c0 4.42-3.58 8-8 8z"/></svg>
+        </div>
+        <div>Letter can't be moved</div>
+      </div>
+      
+      <div class="stage-footer">
+          <!-- <div class="col left">
+            <div id="tabular" class="tabular">
+              <table>
+                <tr>
+                  <th>Typeface</th>
+                  <td><a href="#" target="_blank" id="typeface"></a>
+                </td>
+              </tr>
+              <tr><th>Created</th><td><span id="year"></span> by <a href="#" target="_blank" id="creator"></a></td></tr>
+              </table>
+            </div>
+            <div class="comparing">
+              <div class="radio" id="radio">
+              </div>
+            </div>
+          </div> -->
+          <div class="col center">
+            <div class="comparing" id="scoreWidget">
+              <div class="score">
+                <span class="title">Your score</span>
+                <span id="score">0</span>
+                <span class="total">100</span>
+                <div><a href="#">Try Again</a></div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col right buttons">
+            <a class="button" id="compare" href="#">Done</a>
+              <a  class="button" id="next" href="#">Next</a>
+          </div>
+          
+        </div>
+      </div>
+    <div class="drawer">
+      <div class="wrapper container">
+        <div class="tab" id="tab"><span>K</span>eyboard Shortcuts</div>
+          <div class="shortcuts">
+          <div class="col">          
+            <div>
+              <span class="command">
+                <span class="key">TAB</span>
+              </span> 
+              <span class="text"> Select next letter</span>
+            </div>
+            
+            <div>
+              <span class="command">
+                <span class="key">SHIFT</span>
+                <span class="plus">+</span> 
+                <span class="key">TAB</span> 
+              </span>
+              <span class="text"> Select previous letter</span>
+            </div>
+            
+            <div>
+              <span class="command">
+                <span class="key">ENTER</span> 
+              </span>
+              <span class="text"> Next screen</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="command">
+                <span class="key">&larr;</span>
+              </span> 
+              <span class="text"> Nudge left 1px</span>
+            </div>
+            
+            <div>
+              <span class="command">
+                <span class="key">SHIFT</span> 
+                <span class="plus">+</span> 
+                <span class="key">&larr;</span>
+              </span>
+              <span class="text"> Nudge left 10px</span>
+            </div>
+          </div>
+          <div class="col">          
+            <div>
+              <span class="command">
+                <span class="key">&rarr;</span>
+              </span> 
+              <span class="text"> Nudge right 1px</span>
+            </div>
+            
+            <div>
+              <span class="command">
+                <span class="key">SHIFT</span>
+                <span class="plus">+</span> 
+                <span class="key">&rarr;</span> 
+              </span>
+              <span class="text"> Nudge right 10px</span>
+            </div>
+          </div>
+          </div>
+          </div>
+        </div>
+    <div id="popup">
+      <div class="background"></div>
+      <h1>Share your solution</h1>
+      <a href="#" id="close">Close</a>
+      <div id="popcontent">
+        <p>Write your name or nick</p>
+        <form action="#" id="getpermalink"><input type="text" id="yourname"><input type="submit" value="Done!"></form>
+      </div>
+      <div id="poppermalink">
+        <p>Copy and paste this link wherever you want</p>
+        <div id="permalink"></div>
+        <a href="#" id="preview" target="_blank">Preview in a new window</a>
+      </div>
+    </div>
+    <div id="overlay">
+      <div id="finalscore">
+        <div class="col">
+          <div class="title">Your score</div>
+          <div id="finaltotalscore">0</div>
+          <div class="outof">out of 100</div>
+        </div>  
+        <div class="col">
+          <a class="button" id="twitter" target="_blank" href="http://twitter.com/share?">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="40" height="40"><path class="cls-2" d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23"/></svg>
+          Tweet your score
+          </a>
+          <div class="tryagain"><a href="#" id="tryagain">Play again</a></div>
+        </div>
+  <div class="plug">
+            KernType is brought to you by <a href="http://method.ac">Method of Action</a>.
+          </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" defer src="/js/test_game.js"></script>
+
+<!-- Footer -->
+<%- include('./layouts/footer.ejs') %>
+  

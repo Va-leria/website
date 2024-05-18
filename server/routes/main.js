@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const pool = require('../../db')
+const Alert = require('./alert_user.js')
 
 require('dotenv').config()
 const jwtSecret = process.env.JWT_SECRET;
@@ -75,13 +76,26 @@ router.get('/lk', authorization, async (req, res) => {
 router.get('/lesson1', (req, res) => {
     const locals = {
         title: "Урок",
-        styles: ["/css/reset.css", "/css/vacancies_styles.css", "/css/header.css", "/css/footer.css" ]
+        styles: ["/css/reset.css", "/css/vacancies_styles.css", "/css/header.css", "/css/footer.css", "/css/test_game.css" ]
     }
+    // res.send(Alert);
+    // window.location.reload();
 
-    res.render('vacancies', { locals });
+    res.render('test_game', { locals });
 });
 
-router.get('/learning', (req, res) => {
+router.get('/lesson2', (req, res) => {
+    const locals = {
+        title: "Урок",
+        styles: ["/css/test_game.css", "/css/reset.css", "/css/vacancies_styles.css", "/css/header.css", "/css/footer.css" ]
+    }
+    // res.send(Alert);
+    // window.location.reload();
+
+    res.render('test_game2', { locals });
+});
+
+router.get('/learning', authorization, (req, res) => {
     const locals = {
         title: "Обучение",
         styles: ["/css/reset.css", "/css/learn_styles.css", "/css/header.css", "/css/footer.css" ]
@@ -93,7 +107,8 @@ router.get('/learning', (req, res) => {
 router.get('/signin', (req, res) => {
     const locals = {
         title: "Вход",
-        styles: ["/css/reset.css", "/css/vhod_styles.css"]
+        styles: ["/css/reset.css", "/css/vhod_styles.css"],
+        error: ""
     }
 
     res.render('signin', { locals });
@@ -101,19 +116,28 @@ router.get('/signin', (req, res) => {
 
 router.post('/signin', jsonParser, async (req, res) => {
     const { login, password } = req.body
+    const locals = {
+        title: "Вход",
+        styles: ["/css/reset.css", "/css/vhod_styles.css"],
+        error: ""
+    }
 
     try {
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
         if (!user.rows.length) {
             console.log('User does not exist')
-            return res.status(401).json( { message: 'Invalid credentials' } );
+            locals.error = 'Invalid credentials'
+            res.render('signin', locals)
+            // return res.status(401).json( { message: 'Invalid credentials' } );
         } 
         else {
             const isPasswordValid = await bcrypt.compare(password, user.rows[0].hashed_password);
             
             if(!isPasswordValid) {
                 console.log('Invalid password')
-                return res.status(401).json( { message: 'Invalid credentials' } );
+                locals.error = 'Invalid credentials'
+                res.render('signin', locals)
+                // return res.status(401).json( { message: 'Invalid credentials' } );
             }
             else {
                 const token = jwt.sign({login: user.rows[0].login, userId: user.rows[0].id}, jwtSecret, {expiresIn: '1h'});
