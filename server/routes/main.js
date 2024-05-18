@@ -46,7 +46,7 @@ router.get('/rules', (req, res) => {
     res.render('rules', { locals });
 });
 
-router.get('/vacancies', (req, res) => {
+router.get('/vacancies', authorization, (req, res) => {
     const locals = {
         title: "Вакансии",
         styles: ["/css/reset.css", "/css/vacancies_styles.css", "/css/header.css", "/css/footer.css" ]
