@@ -153,7 +153,7 @@ router.get('/lesson_ui_ux', (req, res) => {
     res.render('lesson_ui_ux', { locals });
 });
 
-router.get('/learning', (req, res) => {
+router.get('/learning', authorization,  (req, res) => {
     const locals = {
         title: "Обучение",
         styles: ["/css/reset.css", "/css/learn_styles.css", "/css/header.css", "/css/footer.css" ]
@@ -162,20 +162,25 @@ router.get('/learning', (req, res) => {
     res.render('learning', { locals });
 });
 
-router.get('/signin', (req, res) => {
+router.get('/signin', async (req, res) => {
     const locals = {
         title: "Вход",
         styles: ["/css/reset.css", "/css/vhod_styles.css"]
     }
-
+    const test = await pool.query('SELECT * FROM users');
+            console.log(test)
     res.render('signin', { locals });
 });
 
 router.post('/signin', jsonParser, async (req, res) => {
     const { login, password } = req.body
-
+    console.log(login)
+    console.log(password)
     try {
+        const test = await pool.query('SELECT * FROM users');
+        console.log(test)
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
+        console.log(user)
         if (!user.rows.length) {
             console.log('User does not exist')
             return res.status(401).json( { message: 'Invalid credentials' } );

@@ -185,6 +185,7 @@ html{
     display: flex;
     flex-direction: column;
     margin: auto 0;
+    margin-left: 5px;
   }
   .div-13 {
     font-family: Unbounded, sans-serif;
@@ -213,13 +214,15 @@ html{
     aspect-ratio: 1.79;
     object-fit: auto;
     object-position: center;
-    width: 100px;
+    width: 58px;
+    margin-left: 15px;
     max-width: 100%;
   }
   .div-16 {
     align-self: start;
     display: flex;
     margin-top: 8px;
+    margin-left: 10px;
     flex-direction: column;
   }
   @media (max-width: 1200px) {
@@ -243,6 +246,7 @@ html{
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-left: 10px;
   
 }
 
@@ -259,7 +263,7 @@ html{
   justify-content: space-between;
   color: #577590;
   font-size: 16px;
-  border-left: none;
+  
 }
 
 .vacancies__cart-logo{
@@ -322,16 +326,21 @@ html{
   color: #577590;
 }
 
+.vacancies__filters{
+  margin-right: 60px;
+}
 .form__filter{
   max-width: 268px;
   color: #577590;
+  font-weight: bold;
 
 }
 
 .form__filter label{
   display: inline-block;
   color: #577590;
-  font-weight: 700;
+  font-weight: bold;
+  margin-top: 30px;
   font-size: 16px;
   margin-bottom: 13px;
 }
