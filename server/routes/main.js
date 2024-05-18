@@ -153,6 +153,24 @@ router.get('/lesson_ui_ux', (req, res) => {
     res.render('lesson_ui_ux', { locals });
 });
 
+router.get('/drag_comp', (req, res) => {
+    const locals = {
+        title: "Практика по уроку композиция",
+        styles: ["/css/reset.css", "/css/drag_styles.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('drag_comp', { locals });
+});
+
+router.get('/test_fonts', (req, res) => {
+    const locals = {
+        title: "Практика по шрифтам",
+        styles: ["/css/reset.css", "/css/test_fonts.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('test_fonts', { locals });
+});
+
 router.get('/learning', authorization,  (req, res) => {
     const locals = {
         title: "Обучение",
