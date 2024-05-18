@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const pool = require('../../db')
-const Alert = require('./alert_user.js')
+
 
 require('dotenv').config()
 const jwtSecret = process.env.JWT_SECRET;
@@ -71,6 +71,17 @@ router.get('/lk', authorization, async (req, res) => {
     } catch (err) {
         console.log(err)
     }
+});
+
+router.get('/lesson2', (req, res) => {
+    const locals = {
+        title: "Урок по цветам",
+        styles: ["/css/test_game.css", "/css/reset.css", "/css/header.css", "/css/footer.css" ]
+    }
+    // res.send(Alert);
+    // window.location.reload();
+
+    res.render('test_game2', { locals });
 });
 
 router.get('/lesson_color', (req, res) => {
