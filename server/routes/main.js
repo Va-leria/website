@@ -230,6 +230,11 @@ router.get('/signin', (req, res) => {
 
 router.post('/signin', jsonParser, async (req, res) => {
     const { login, password } = req.body
+    const locals = {
+        title: "Вход",
+        styles: ["/css/reset.css", "/css/vhod_styles.css"],
+        error: ""
+    }
     try {
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
         if (!user.rows.length) {
