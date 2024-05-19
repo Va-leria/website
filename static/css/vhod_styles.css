@@ -66,6 +66,13 @@ nav{
   line-height: normal;
 }
 
+.error {
+  color: brown;
+  font-family: 'Unbounded';
+  font-size: 14px;
+  font-weight: bold;
+}
+
 .screen .text-wrapper-6 {
   position: absolute;
   top: 532px;
