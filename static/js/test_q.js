@@ -74,6 +74,15 @@ function nextQuetion() {
         result.classList.remove('hidden');
         quiz.classList.add('hidden');
         resultText.innerHTML = `Количество правильных ответов: ${userScore} из ${questions.length}.`
+        const data ={
+            score: userScore
+        }
+
+        fetch('http://localhost:3030/test_fonts', {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          })
         return;
 
     }

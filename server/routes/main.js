@@ -18,7 +18,7 @@ const authorization = (req, res, next) => {
     }
     try {
       const data = jwt.verify(token, jwtSecret);
-      req.userId = data.id;
+      req.userId = data.userId;
       req.userLogin = data.login;
       return next();
     } catch {
@@ -62,12 +62,24 @@ router.get('/lk', authorization, async (req, res) => {
     }
     try {
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [req.userLogin]);
-        console.log(user)
+        const userProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1', [req.userId]);
+        console.log(userProgress)
+        let index
+        const dict_progress = {}
+        for (index = 0; index < userProgress.rows.length; ++index) {
+            dict_progress[userProgress.rows[index].task_id] = userProgress.rows[index].progress
+        }
+        console.log(dict_progress['1'])
         const data = {
             login: req.userLogin,
-            username: user.rows[0].username
+            username: user.rows[0].username,
         }
-        res.render('lk', { locals, data });
+        const progress = {
+            designBasics: {
+                fonts: dict_progress['1']
+            }
+        }
+        res.render('lk', { locals, data, progress });
     } catch (err) {
         console.log(err)
     }
@@ -89,8 +101,6 @@ router.get('/lesson_color', (req, res) => {
         title: "Урок по цветам",
         styles: ["/css/reset.css", "/css/lesson color.css", "/css/header.css", "/css/footer.css" ]
     }
-    // res.send(Alert);
-    // window.location.reload();
 
     res.render('lesson_color', { locals });
 });
@@ -185,6 +195,13 @@ router.get('/test_fonts', (req, res) => {
     res.render('test_fonts', { locals });
 });
 
+router.post('/test_fonts', authorization, jsonParser, async (req, res) => {
+    await pool.query(
+        'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 1',
+        [req.body.score, req.userId]
+    )
+})
+
 router.get('/learning', authorization,  (req, res) => {
     const locals = {
         title: "Обучение",
@@ -194,26 +211,19 @@ router.get('/learning', authorization,  (req, res) => {
     res.render('learning', { locals });
 });
 
-router.get('/signin', async (req, res) => {
+router.get('/signin', (req, res) => {
     const locals = {
         title: "Вход",
         styles: ["/css/reset.css", "/css/vhod_styles.css"],
         error: ""
     }
-    const test = await pool.query('SELECT * FROM users');
-            console.log(test)
     res.render('signin', { locals });
 });
 
 router.post('/signin', jsonParser, async (req, res) => {
     const { login, password } = req.body
-    console.log(login)
-    console.log(password)
     try {
-        const test = await pool.query('SELECT * FROM users');
-        console.log(test)
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
-        console.log(user)
         if (!user.rows.length) {
             console.log('User does not exist')
             locals.error = 'Invalid credentials'
@@ -266,6 +276,15 @@ router.post('/login', jsonParser, async (req, res) => {
                 'INSERT INTO users (username, login, hashed_password, email) VALUES ($1, $2, $3, $4) RETURNING id',
                 [username, login, hashedPassword, email]
             )
+            const tasks = await pool.query('SELECT * FROM tasks')
+            let index
+            console.log(typeof newUser.rows[0].id)
+            for (index = 0; index < tasks.rows.length; ++index) {
+                await pool.query(
+                    'INSERT INTO user_task (user_id, task_id) VALUES ($1, $2)',
+                    [newUser.rows[0].id, tasks.rows[index].id]
+                )
+            }
             const token = jwt.sign({login: login, userId: newUser.rows[0].id}, jwtSecret, {expiresIn: '1h'});
             res.cookie('access_token', token, {httpOnly: true});
             res.redirect('/')
