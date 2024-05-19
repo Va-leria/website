@@ -146,9 +146,18 @@
       margin: 0 auto;
       padding: 0 64px;
     }
+
+    .task {
+      font-size: 14px;
+      font-family: 'Unbounded';
+      font-weight: 400;
+      color: #FBF8EE;
+      margin-top: 10px;
+      text-align: center;
+    }
     
     a, a:link {
-      color: var(--z13)
+      color: #fff
     }
     a:hover {
       color: var(--z15);
@@ -391,7 +400,7 @@
       cursor: pointer;
       z-index: 9;
       line-height: 140%;
-      color: var(--z9);
+      color: #97CC04;
     }
     
     #better a { color: var(--d7); }
@@ -427,8 +436,8 @@
     
     .button:hover {
       transition: none;
-      color: var(--z15);
-      background: var(--z4);
+      color: #FBF8EE;
+      background: #2A445B;
     }
     
     .button:active {
@@ -439,7 +448,7 @@
     .drawer {
       transition: all var(--transition-duration) ease;
       transform: translate(0, -100%);
-      background-color: var(--z3);
+      background-color: #97CC04;
       position: absolute;
       top: 0;
       left: 0;
@@ -466,7 +475,7 @@
       background: var(--z3);
       cursor: pointer;
       border-radius: 0 0 4px 4px; 
-      color: var(--z11);
+      color: #97CC04;
     }
     
     .drawer .tab:hover {
@@ -474,7 +483,7 @@
     }
     
     .drawer.open .tab:hover {
-      background: var(--z3);
+      background: #97CC04;
     }
     
     .drawer .tab span {
@@ -695,11 +704,11 @@
     }
     
     .app-menu-button:hover .app-menu-icon {
-        border-color: var(--z15);
+        border-color: #577590;
     }
     
     .app-menu-icon {
-        border-bottom: solid var(--z11) 2px;
+        border-bottom: solid #577590 2px;
         width: 50%;
         margin-bottom: 3px;
         transform-origin: 20%;
@@ -872,7 +881,7 @@
       }
     }
     .radio {
-      font-family:  var(--sans-serif);
+      font-family:  'Unbounded';
     }
     
     .radio a {
@@ -882,7 +891,7 @@
       white-space: nowrap;
       line-height: 40px;
       text-decoration: none;
-      color: var(--z7);
+      color: #fff;
       padding-left: 25px;
       position: relative; 
       margin-right: 16px;
@@ -897,7 +906,7 @@
       position: absolute;
       left: 0;
       top: 50%;
-      border-radius: var(--x4);
+      border-radius: #97CC04;
       transition: all 200ms ease;
       transform:  translate(0,-2px);
     }
@@ -909,7 +918,7 @@
       width: var(--x4); 
     }
     
-    .radio a.selected { color: var(--d8); }
+    .radio a.selected { color: #97CC04; }
     .radio a.selected:before { box-shadow: 0 0 var(--x1) var(--d7); background-color: var(--d7) }
     
     @media (max-width: 760px) and (orientation:portrait) { 
@@ -932,7 +941,7 @@
     .score span#score {
       font-size: 40px;
       display: inline-block;
-      color: var(--z15);
+      color: #fff;
       padding-bottom: 25px;
       margin-bottom: -7px;
       text-align: right; 
@@ -941,7 +950,7 @@
     
     .score span#score:after {
       content: '/';
-      color: var(--z6);
+      color: #fff;
       display: inline-block;
       position: relative;
       left: 4px;
@@ -1230,7 +1239,7 @@
     .tabular table a:link, 
     .tabular table a:visited {
       transition: all 150ms ease;
-      color: var(--z14);
+      color: #97CC04;
       text-decoration: none;
       display: inline-block;
       position: relative;
@@ -1249,22 +1258,22 @@
       bottom: 0;
       left: 0;
       right: 0;
-      border-bottom: solid var(--z5) 2px; 
+      border-bottom: solid #97CC04 2px; 
     }
     
     .tabular table a:hover:visited:before {
-      border-bottom-color: var(--d7);
+      border-bottom-color: #97CC04;
     }
     
     .tabular table a:hover {
-      background-color: var(--z1);
+      background-color: #97CC04;
       color: var(--z15); 
     }
     
     .tabular table th,
     .tabular table td {
       font-weight: normal;
-      color: var(--z7);
+      color: #97CC04;
       padding-right: 16px;
       text-align: left;
       line-height: 180%;
@@ -1312,7 +1321,7 @@
       position: absolute;
       top: -25px;
       left: -25px;
-      background: var(--d6);
+      background: #97CC04;
       width: 50px;
       height: 50px;
       border-radius: 50px;
@@ -1326,6 +1335,6 @@
       right: 10px;
       bottom: 10px;
       border-radius: 50px;
-      background: var(--d7);
+      background: #97CC04;
       opacity: 1;
     }
