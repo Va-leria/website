@@ -124,7 +124,7 @@
     }
     
     body {
-      background-color: var(--z2);
+      background-color: #577590;
       font: 16px/150% var(--serif);
       color: var(--z15); 
       padding: 0;
@@ -410,9 +410,10 @@
       }
     }
     .button {
-      font-size: 36px;
-      color: var(--z14);
-      background: var(--z3);
+      font-size: 18px;
+      font-family: 'Unbounded';
+      color: #FBF8EE;
+      background: #F77A07;
       display: inline-block;
       text-decoration: none;
       line-height: 64px;
@@ -506,7 +507,7 @@
     
     .drawer .wrapper .shortcuts .col div span.key {
       text-transform: uppercase;
-      font-family: Arial, sans-serif;
+      font-family: 'Unbounded';
       display: inline-block;
       background: var(--z5);
       border-radius: 2px;
@@ -516,7 +517,7 @@
       letter-spacing: -0.5px;
       line-height: 18px;
       color: var(--z14);
-      font-weight: bold;
+      font-weight: 300;
       box-shadow: 1px 1px 1px var(--z3);
     }
     
@@ -920,7 +921,8 @@
     }
     
     .score span {
-      color: var(--z7); 
+      color: #fff; 
+      font-family: 'Unbounded';
     }
     
     .score div {

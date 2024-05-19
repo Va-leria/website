@@ -1,4 +1,4 @@
-<%- include('./layouts/header.ejs') %>
+
 <div class="app-menu-button">
     <div class="app-menu-icon top"></div>
     <div class="app-menu-icon middle"></div>
@@ -7,7 +7,7 @@
   <div id="menu-overlay" class="menu-overlay"></div>
   <div id="menu" class="menu">
     <div class="menu-item">
-      <a href="#" id="menu-restart">Start Over</a>
+      <a href="#" id="menu-restart">Начать сначала</a>
     </div>
     <!-- <div class="menu-item">
       <a href="https://method.ac/writing/articles/about_kern_type.html" target="_blank">About this game</a>
@@ -23,14 +23,7 @@
     </div> -->
     <div class="menu-separator"></div>
       <div class="menu-item">
-      <a href="https://method.ac" id="back-to-home" target="_blank">
-        <div class="logo">
-          <svg width="12" height="12" viewBox="0 0 11 11">
-            <path style="fill: var(--z10)" d="M11 0L0 11h11z"></path><path style="fill: var(--z13)" d="M0 0l11 11H0z"></path>
-          </svg>
-        </div>
-        <!-- <div class="home">Method of Action</div> -->
-      </a>
+      
     </div>
   </div>
   <div id="app">
@@ -78,7 +71,7 @@
           <div class="col center">
             <div class="comparing" id="scoreWidget">
               <div class="score">
-                <span class="title">Your score</span>
+                <span class="title">Ваш результат</span>
                 <span id="score">0</span>
                 <span class="total">100</span>
                 <div><a href="#">Try Again</a></div>
@@ -87,8 +80,8 @@
             </div>
           </div>
           <div class="col right buttons">
-            <a class="button" id="compare" href="#">Done</a>
-              <a  class="button" id="next" href="#">Next</a>
+            <a class="button" id="compare" href="#">Проверить</a>
+              <a  class="button" id="next" href="#">Следующий</a>
           </div>
           
         </div>
@@ -195,5 +188,5 @@
   <script type="text/javascript" defer src="/js/test_game.js"></script>
 
 <!-- Footer -->
-<%- include('./layouts/footer.ejs') %>
+
   

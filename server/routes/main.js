@@ -185,6 +185,15 @@ router.get('/test_fonts', (req, res) => {
     res.render('test_fonts', { locals });
 });
 
+router.get('/test_game2', (req, res) => {
+    const locals = {
+        title: "Практика по уроку композиция",
+        styles: ["/css/reset.css", "/css/test_game.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('test_game2', { locals });
+});
+
 router.get('/learning', authorization,  (req, res) => {
     const locals = {
         title: "Обучение",

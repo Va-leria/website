@@ -104,6 +104,11 @@ html{
 	font-size:20px;
 	letter-spacing:0;
 }
+
+.buttton a{
+	text-decoration: none;
+	color: #FBF8EE;
+}
 .rectangle_115_514_218 { 
 	border:5px solid rgba(243.66666734218597, 237.91344165802002, 220.65367341041565, 1);
 }
