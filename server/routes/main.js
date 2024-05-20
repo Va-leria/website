@@ -186,6 +186,15 @@ router.get('/drag_comp', (req, res) => {
     res.render('drag_comp', { locals });
 });
 
+router.get('/drag_comp_2', (req, res) => {
+    const locals = {
+        title: "Практика по уроку композиция",
+        styles: ["/css/reset.css", "/css/drag_styles.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('drag_comp_2', { locals });
+});
+
 router.get('/test_fonts', (req, res) => {
     const locals = {
         title: "Практика по шрифтам",
