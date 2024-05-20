@@ -4,6 +4,7 @@ const $ = document.querySelector.bind(document);
 
 const draggableElements = document.querySelectorAll(".draggable");
 const droppableElements = document.querySelectorAll(".droppable");
+const buttonOut = $('.button_out');
 
 draggableElements.forEach(elem => {
   elem.addEventListener("dragstart", dragStart); // Fires as soon as the user starts dragging an item - This is where we can define the drag data
@@ -61,4 +62,10 @@ function drop(event) {
     draggableElement.setAttribute("draggable", "false");
     event.target.insertAdjacentHTML("afterbegin", `<i class="fas fa-${draggableElementData}"></i>`);
   }
+}
+
+buttonOut.addEventListener('click', exitAlert);
+
+function exitAlert() {
+  alert('Если Вы выйдете весь прогресс потеряется');
 }

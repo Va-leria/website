@@ -1478,7 +1478,7 @@ function Stage(selector){
     });
 
     table.hide();
-    radio.show();
+    // radio.show();
     el.classList.add("comparing");
     nextButton.classList.remove("hidden");
     compareButton.classList.add("hidden");

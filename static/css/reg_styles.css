@@ -183,3 +183,13 @@ top: 97px;
 left: 1300px;
 object-fit: cover;
 }
+
+.error {
+  position: absolute;
+  top: 230px;
+  left: 600px;
+  color: brown;
+  font-family: 'Unbounded';
+  font-size: 16px;
+  font-weight: bold;
+}

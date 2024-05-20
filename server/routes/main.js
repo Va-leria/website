@@ -286,6 +286,12 @@ router.post('/login', jsonParser, async (req, res) => {
     const salt = bcrypt.genSaltSync(5) 
     const hashedPassword = bcrypt.hashSync(password, salt)
 
+    const locals = {
+        title: "Регистрация",
+        styles: ["/css/reset.css", "/css/reg_styles.css"],
+        error: ""
+    }
+
     try {
         // Checking of the user's existence
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
@@ -294,22 +300,40 @@ router.post('/login', jsonParser, async (req, res) => {
             return res.status(401).json( { message: 'User already exist. Please signin' } );
         }
         else { 
-            const newUser = await pool.query(
-                'INSERT INTO users (username, login, hashed_password, email) VALUES ($1, $2, $3, $4) RETURNING id',
-                [username, login, hashedPassword, email]
-            )
-            const tasks = await pool.query('SELECT * FROM tasks')
-            let index
-            console.log(typeof newUser.rows[0].id)
-            for (index = 0; index < tasks.rows.length; ++index) {
-                await pool.query(
-                    'INSERT INTO user_task (user_id, task_id) VALUES ($1, $2)',
-                    [newUser.rows[0].id, tasks.rows[index].id]
-                )
+            if (!username) {
+                locals.error = "Поле 'Имя Фамилия' не может быть пустым"
+                res.render('login', locals)
             }
-            const token = jwt.sign({login: login, userId: newUser.rows[0].id}, jwtSecret, {expiresIn: '1h'});
-            res.cookie('access_token', token, {httpOnly: true});
-            res.redirect('/')
+            else if (!login) {
+                locals.error = "Поле 'Логин' не может быть пустым"
+                res.render('login', locals)
+            }
+            else if (!password) {
+                locals.error = "Поле 'Пароль' не может быть пустым"
+                res.render('login', locals)
+            }
+            else if (!email) {
+                locals.error = "Поле 'Email' не может быть пустым"
+                res.render('login', locals)
+            }
+            else {
+                const newUser = await pool.query(
+                    'INSERT INTO users (username, login, hashed_password, email) VALUES ($1, $2, $3, $4) RETURNING id',
+                    [username, login, hashedPassword, email]
+                )
+                const tasks = await pool.query('SELECT * FROM tasks')
+                let index
+                console.log(typeof newUser.rows[0].id)
+                for (index = 0; index < tasks.rows.length; ++index) {
+                    await pool.query(
+                        'INSERT INTO user_task (user_id, task_id) VALUES ($1, $2)',
+                        [newUser.rows[0].id, tasks.rows[index].id]
+                    )
+                }
+                const token = jwt.sign({login: login, userId: newUser.rows[0].id}, jwtSecret, {expiresIn: '1h'});
+                res.cookie('access_token', token, {httpOnly: true});
+                res.redirect('/')
+            }
         }
         
     } catch (err) {
