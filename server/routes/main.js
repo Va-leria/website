@@ -195,6 +195,15 @@ router.get('/drag_comp_2', (req, res) => {
     res.render('drag_comp_2', { locals });
 });
 
+router.get('/test_fs', (req, res) => {
+    const locals = {
+        title: "Практика по фирменному стилю",
+        styles: ["/css/reset.css", "/css/test_fonts.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('test_fs', { locals });
+});
+
 router.get('/test_fonts', (req, res) => {
     const locals = {
         title: "Практика по шрифтам",
