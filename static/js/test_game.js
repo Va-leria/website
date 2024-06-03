@@ -1327,7 +1327,7 @@ function Stage(selector){
     });
 
     table.hide();
-    radio.show();
+    // radio.show();
     el.classList.add("comparing");
     nextButton.classList.remove("hidden");
     compareButton.classList.add("hidden");
@@ -1578,12 +1578,7 @@ function Game(){
 
 
 
-    const text = encodeURI(`I got ${score}/100 on KernType, a letter spacing game.`);
-    const url = encodeURI("https://type.method.ac");
-    const intent = "https://twitter.com/intent/tweet";
-    const hashtags = "KernType";
-
-    dom.gid("twitter").setAttribute("href", `${intent}?text=${text}&url=${url}&hashtags=${hashtags}`);
+    
 
 
   }
