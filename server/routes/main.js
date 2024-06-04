@@ -77,7 +77,8 @@ router.get('/lk', authorization, async (req, res) => {
         }
         const progress = {
             designBasics: {
-                kerningPractice: dict_progress['3']
+                kerningPractice: dict_progress['3'],
+                colorCircle: dict_progress['4']
             },
             graphicDesign: {
                 logoPractice: dict_progress['1']
@@ -217,6 +218,13 @@ router.get('/logo_practice', (req, res) => {
     res.render('logo_practice', { locals });
 });
 
+router.post('/logo_practice', authorization, jsonParser, async (req, res) => {
+    await pool.query(
+        'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 1',
+        [req.body.score, req.userId]
+    )
+})
+
 router.get('/game_color', (req, res) => {
     const locals = {
         title: "Практика по цветовому кругу",
@@ -226,12 +234,16 @@ router.get('/game_color', (req, res) => {
     res.render('game_color', { locals });
 });
 
-router.post('/logo_practice', authorization, jsonParser, async (req, res) => {
-    await pool.query(
-        'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 1',
-        [req.body.score, req.userId]
-    )
-})
+router.post('/game_color', authorization, jsonParser, async  (req, res) => {
+    const colorGameProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1 AND task_id = 4', [req.userId]);
+    if (colorGameProgress.rows[0].progress < req.body.score) {
+        await pool.query(
+            'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 4',
+            [req.body.score, req.userId]
+        )
+    }
+});
+
 router.get('/kerning', (req, res) => {
     const locals = {
         title: "Практика по уроку композиция",

@@ -29,3 +29,4 @@ CREATE TABLE IF NOT EXISTS user_task (
 INSERT INTO tasks (task_name) VALUES ('logo_practice');
 INSERT INTO tasks (task_name) VALUES ('drag_drop');
 INSERT INTO tasks (task_name) VALUES ('kerning');
+INSERT INTO tasks (task_name) VALUES ('color');

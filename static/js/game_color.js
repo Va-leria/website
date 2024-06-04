@@ -1,3 +1,15 @@
+const $ = document.querySelector.bind(document);
+const nextButton = $('.next');
+const exitButton = $('.exit');
+nextButton.addEventListener('click', nextTask); 
+exitButton.addEventListener('click', exitGame); 
+nextButton.classList.add("hidden");
+document.getElementById('next').style.visibility='hidden';
+
+let index = 0;
+let currentMode = 'complementary';
+let currentIndex = 0;
+
 const colors = [
     '#C5047D',
     '#6D398B',
@@ -58,8 +70,6 @@ const tetrads = [
     // ['#E22321', '#FDC60A', '#008E5A', '#454E99']
 ];
 
-let currentMode = 'complementary';
-let currentIndex = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
     setGameMode();
@@ -91,6 +101,13 @@ function setGameMode() {
         star2.style.display = 'block';
         star3.style.display = 'block';
     }
+    if (currentIndex < getModeArray().length-1) {
+        currentIndex += 1
+    }
+    else {
+        currentIndex = 0
+    }
+    index += 1
 }
 
 function checkColor(selectedColor) {
@@ -106,18 +123,56 @@ function checkColor(selectedColor) {
     }
 
     if (selectedColor === correctColor) {
-        result.textContent = 'ВЕРНО!';
+        if (index == 6) {
+            result.setAttribute('style', 'white-space: pre;');
+            result.textContent = "ВЕРНО! \r\n";
+            result.textContent += "Игра завершена!"
+        }
+        else {
+            result.textContent = 'ВЕРНО!';
+            nextButton.classList.remove("hidden");
+            document.getElementById('next').style.visibility='visible';
+        }
+        const data ={
+            score: index
+        }
+    
+        fetch('http://localhost:3030/game_color', {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
     } else {
         result.textContent = 'ПОПРОБУЙ ЕЩЕ РАЗ!';
     }
 }
 
 function nextTask() {
-    const modes = ['complementary', 'triad', 'tetrad'];
-    currentMode = modes[Math.floor(Math.random() * modes.length)];
-    currentIndex = Math.floor(Math.random() * getModeArray().length);
+    nextButton.classList.add("hidden");
+    document.getElementById('next').style.visibility='hidden';
+    if (index < 2) {
+        currentMode = 'complementary'
+        console.log("complementary_list:", complementary[currentIndex])
+    }
+    else if (index >= 2 && index < 4) {
+        currentMode = 'triad'
+        console.log("triad_list:", triads[currentIndex])
+    }
+    else if (index >= 4 && index < 6) {
+        currentMode = 'tetrad'
+        console.log("tetrad_list:", tetrads[currentIndex])
+    }
+    else {
+        console.log("DONE")
+    }
+    // currentMode = modes[Math.floor(Math.random() * modes.length)];
+    // currentIndex = Math.floor(Math.random() * getModeArray().length);
+    console.log("currentMode:", currentMode)
+    console.log("currentIndex:", currentIndex)
+    console.log("index:", index)
 
     setGameMode();
+
     document.getElementById('result').textContent = '';
 }
 
