@@ -1,0 +1,32 @@
+<body>
+    <div class="container">
+        <div class="task">
+            <span class="instruction" id="instruction">*Задание: выбери комплементарный цвет для звездочки</span>
+            <div class="stars" id="stars-container">
+                <div class="star" id="star1"></div>
+                <div class="star" id="star2" style="display: none;"></div>
+                <div class="star" id="star3" style="display: none;"></div>
+            </div>
+        </div>
+        <div class="color-grid">
+            <div class="color-cell" style="background-color: #C5047D;" onclick="checkColor('#C5047D')"></div>
+            <div class="color-cell" style="background-color: #6D398B;" onclick="checkColor('#6D398B')"></div>
+            <div class="color-cell" style="background-color: #454E99;" onclick="checkColor('#454E99')"></div>
+            <div class="color-cell" style="background-color: #2A71AF;" onclick="checkColor('#2A71AF')"></div>
+            <div class="color-cell" style="background-color: #F3E500;" onclick="checkColor('#F3E500')"></div>
+            <div class="color-cell" style="background-color: #8DBB25;" onclick="checkColor('#8DBB25')"></div>
+            <div class="color-cell" style="background-color: #008E5A;" onclick="checkColor('#008E5A')"></div>
+            <div class="color-cell" style="background-color: #0696BB;" onclick="checkColor('#0696BB')"></div>
+            <div class="color-cell" style="background-color: #FDC60A;" onclick="checkColor('#FDC60A')"></div>
+            <div class="color-cell" style="background-color: #F28E1C;" onclick="checkColor('#F28E1C')"></div>
+            <div class="color-cell" style="background-color: #E96220;" onclick="checkColor('#E96220')"></div>
+            <div class="color-cell" style="background-color: #E22321;" onclick="checkColor('#E22321')"></div>
+        </div>
+        <div class="result" id="result"></div>
+        <div class="buttons">
+            <button class="exit" onclick="exitGame()">ВЫЙТИ</button>
+            <button class="next" onclick="nextTask()">СЛЕДУЮЩИЙ</button>
+        </div>
+    </div>
+    <script src="/js/game_color.js"></script>
+</body>

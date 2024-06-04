@@ -213,6 +213,15 @@ router.get('/test_fonts', (req, res) => {
     res.render('test_fonts', { locals });
 });
 
+router.get('/game_color', (req, res) => {
+    const locals = {
+        title: "Практика по цветовому кругу",
+        styles: ["/css/reset.css", "/css/game_color.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('game_color', { locals });
+});
+
 router.post('/test_fonts', authorization, jsonParser, async (req, res) => {
     await pool.query(
         'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 1',
