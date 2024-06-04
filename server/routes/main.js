@@ -3,7 +3,8 @@ const router = express.Router();
 const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const pool = require('../../db')
+const pool = require('../../db');
+// const kerning = require('../../static/js/kerning');
 
 
 require('dotenv').config()
@@ -76,6 +77,9 @@ router.get('/lk', authorization, async (req, res) => {
         }
         const progress = {
             designBasics: {
+                kerningPractice: dict_progress['3']
+            },
+            graphicDesign: {
                 logoPractice: dict_progress['1']
             }
         }

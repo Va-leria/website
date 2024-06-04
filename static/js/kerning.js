@@ -1207,6 +1207,7 @@ function gameOver() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
   })
+  state.set("stageIndex", 0);
 }
 
 function Stage(selector){
@@ -1552,7 +1553,8 @@ function Game(){
   dom.gid("exit").addEventListener("click", exitAlert)
 
   function load(){
-    const index = state.get("stageIndex");
+    // const index = state.get("stageIndex");
+    const index = 0;
     const isDark = state.get("darkmode");
     const hasVisited = state.get("visited");
     loadStage(index);
