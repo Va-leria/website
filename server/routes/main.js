@@ -76,7 +76,7 @@ router.get('/lk', authorization, async (req, res) => {
         }
         const progress = {
             designBasics: {
-                fonts: dict_progress['1']
+                logoPractice: dict_progress['1']
             }
         }
         res.render('lk', { locals, data, progress });
@@ -204,13 +204,13 @@ router.get('/test_fs', (req, res) => {
     res.render('test_fs', { locals });
 });
 
-router.get('/fonts', (req, res) => {
+router.get('/logo_practice', (req, res) => {
     const locals = {
         title: "Практика по шрифтам",
         styles: ["/css/reset.css", "/css/fonts.css", "/css/header.css", "/css/footer.css" ]
     }
 
-    res.render('fonts', { locals });
+    res.render('logo_practice', { locals });
 });
 
 router.get('/game_color', (req, res) => {
@@ -222,7 +222,7 @@ router.get('/game_color', (req, res) => {
     res.render('game_color', { locals });
 });
 
-router.post('/fonts', authorization, jsonParser, async (req, res) => {
+router.post('/logo_practice', authorization, jsonParser, async (req, res) => {
     await pool.query(
         'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 1',
         [req.body.score, req.userId]
@@ -239,11 +239,8 @@ router.get('/kerning', (req, res) => {
 
 router.post('/kerning', authorization, jsonParser, async  (req, res) => {
     const kerningProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1 AND task_id = 3', [req.userId]);
-    console.log(kerningProgress.rows[0].progress)
     if (kerningProgress.rows[0].progress < req.body.maxScore) {
         let score = req.body.currentIndex + 1
-        console.log("score:")
-        console.log(score)
         if (kerningProgress.rows[0].progress < score) {
             console.log("HERE")
             await pool.query(

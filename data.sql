@@ -1,5 +1,9 @@
 CREATE DATABASE graficus;
 
+DROP TABLE user_task;
+DROP TABLE users;
+DROP TABLE tasks;
+
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     username VARCHAR (255),
@@ -21,3 +25,7 @@ CREATE TABLE IF NOT EXISTS user_task (
     progress INTEGER DEFAULT 0,
     UNIQUE (user_id, task_id)
 );
+
+INSERT INTO tasks (task_name) VALUES ('logo_practice');
+INSERT INTO tasks (task_name) VALUES ('drag_drop');
+INSERT INTO tasks (task_name) VALUES ('kerning');
