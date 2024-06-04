@@ -78,7 +78,7 @@ function nextQuetion() {
             score: userScore
         }
 
-        fetch('http://localhost:3030/test_fonts', {
+        fetch('http://localhost:3030/fonts', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

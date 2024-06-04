@@ -1190,6 +1190,25 @@ function Message(selector){
   
   this.show = show;
 }
+function exitAlert() {
+  console.log('Вы уверены, что хотите выйти?');
+  state.set("stageIndex", 0);
+}
+
+function gameOver() {
+  var currentIndex = state.get("stageIndex");
+  const data ={
+    currentIndex: currentIndex,
+    maxScore: stages.length
+  }
+
+  fetch('http://localhost:3030/kerning', {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+  })
+}
+
 function Stage(selector){
   const el = dom.qs(selector);
   const gShadow = dom.createNS({el: "g"}, dom.root)
@@ -1201,11 +1220,15 @@ function Stage(selector){
 
   const compareButton = dom.gid("compare");
   const nextButton = dom.gid("next");
+  const gameOverButton = dom.gid("gameover");
   const scoreWidget = dom.gid("scoreWidget");
   const tryAgainButton = dom.qs("a", scoreWidget);
+  const exitButton = dom.gid("exit")
   compareButton.addEventListener("click", function(){state.set("stageComparing", true)});
   nextButton.addEventListener("click", game.nextStage);
   tryAgainButton.addEventListener("click", tryAgain);
+  exitButton.addEventListener("click", exitAlert)
+  gameOverButton.addEventListener("click", gameOver)
 
 
   function renderLetters(data) {
@@ -1246,6 +1269,7 @@ function Stage(selector){
     table.render(data);
     radio.hide();
     nextButton.classList.add("hidden");
+    gameOverButton.classList.add("hidden");
     // tryAgainButton.classList.add("hidden");
     compareButton.classList.remove("hidden");
     scoreWidget.classList.add("hidden");
@@ -1354,9 +1378,15 @@ function Stage(selector){
     scores[stage.index] = score;
     state.set("stageScore", scores);
     const scoreEl = dom.gid("score");
+    console.log(stages.length)
     //scoreEl.textContent = 100;
-    if (score > 85) {
-      nextButton.classList.remove("hidden");
+    if (score > 30) {
+      if (stage.index === stages.length - 1) {
+        gameOverButton.classList.remove("hidden");
+      }
+      else {
+        nextButton.classList.remove("hidden");
+      }
     }
     // nextButton.classList.remove("hidden");
     // tryAgainButton.classList.remove("hidden");
@@ -1367,6 +1397,7 @@ function Stage(selector){
       innerHTML: [0, score],
       easing: "cubicBezier(0.000, .800, 0.485, .800)",
     })
+    dom.gid("exit").addEventListener("click", exitAlert)
   }
 
   function compareBoth(){
@@ -1518,13 +1549,15 @@ function Game(){
     reload_word();
   })
 
+  dom.gid("exit").addEventListener("click", exitAlert)
+
   function load(){
     const index = state.get("stageIndex");
     const isDark = state.get("darkmode");
     const hasVisited = state.get("visited");
     loadStage(index);
     darkmode(isDark);
-    if (!index) tutorial.play();
+    // if (!index) tutorial.play();
   }
 
   function loadCollection(index){
@@ -1546,6 +1579,16 @@ function Game(){
       state.set("stageIndex", 0);
     else 
       state.set("stageIndex", currentIndex + 1);
+    const data ={
+      currentIndex: currentIndex,
+      maxScore: stages.length
+    }
+
+    fetch('http://localhost:3030/kerning', {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
   }
 
   function prevStage(){

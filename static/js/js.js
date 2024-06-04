@@ -67,5 +67,5 @@ function drop(event) {
 buttonOut.addEventListener('click', exitAlert);
 
 function exitAlert() {
-  alert('Если Вы выйдете весь прогресс потеряется');
+  alert('Если Вы выйдете, весь прогресс потеряется');
 }

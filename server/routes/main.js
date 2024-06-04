@@ -93,7 +93,7 @@ router.get('/lesson2', (req, res) => {
     // res.send(Alert);
     // window.location.reload();
 
-    res.render('test_game2', { locals });
+    res.render('kerning', { locals });
 });
 
 router.get('/lesson_color', (req, res) => {
@@ -198,34 +198,51 @@ router.get('/drag_comp_2', (req, res) => {
 router.get('/test_fs', (req, res) => {
     const locals = {
         title: "Практика по фирменному стилю",
-        styles: ["/css/reset.css", "/css/test_fonts.css", "/css/header.css", "/css/footer.css" ]
+        styles: ["/css/reset.css", "/css/fonts.css", "/css/header.css", "/css/footer.css" ]
     }
 
     res.render('test_fs', { locals });
 });
 
-router.get('/test_fonts', (req, res) => {
+router.get('/fonts', (req, res) => {
     const locals = {
         title: "Практика по шрифтам",
-        styles: ["/css/reset.css", "/css/test_fonts.css", "/css/header.css", "/css/footer.css" ]
+        styles: ["/css/reset.css", "/css/fonts.css", "/css/header.css", "/css/footer.css" ]
     }
 
-    res.render('test_fonts', { locals });
+    res.render('fonts', { locals });
 });
 
-router.post('/test_fonts', authorization, jsonParser, async (req, res) => {
+router.post('/fonts', authorization, jsonParser, async (req, res) => {
     await pool.query(
         'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 1',
         [req.body.score, req.userId]
     )
 })
-router.get('/test_game2', (req, res) => {
+router.get('/kerning', (req, res) => {
     const locals = {
         title: "Практика по уроку композиция",
-        styles: ["/css/reset.css", "/css/test_game.css", "/css/header.css", "/css/footer.css" ]
+        styles: ["/css/reset.css", "/css/kerning.css", "/css/header.css", "/css/footer.css" ]
     }
 
-    res.render('test_game2', { locals });
+    res.render('kerning', { locals });
+});
+
+router.post('/kerning', authorization, jsonParser, async  (req, res) => {
+    const kerningProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1 AND task_id = 3', [req.userId]);
+    console.log(kerningProgress.rows[0].progress)
+    if (kerningProgress.rows[0].progress < req.body.maxScore) {
+        let score = req.body.currentIndex + 1
+        console.log("score:")
+        console.log(score)
+        if (kerningProgress.rows[0].progress < score) {
+            console.log("HERE")
+            await pool.query(
+                'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 3',
+                [score, req.userId]
+            )
+        }
+    }
 });
 
 router.get('/learning', authorization,  (req, res) => {
