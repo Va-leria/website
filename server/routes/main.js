@@ -64,13 +64,11 @@ router.get('/lk', authorization, async (req, res) => {
     try {
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [req.userLogin]);
         const userProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1', [req.userId]);
-        console.log(userProgress)
         let index
         const dict_progress = {}
         for (index = 0; index < userProgress.rows.length; ++index) {
             dict_progress[userProgress.rows[index].task_id] = userProgress.rows[index].progress
         }
-        console.log(dict_progress['1'])
         const data = {
             login: req.userLogin,
             username: user.rows[0].username,
@@ -258,7 +256,6 @@ router.post('/kerning', authorization, jsonParser, async  (req, res) => {
     if (kerningProgress.rows[0].progress < req.body.maxScore) {
         let score = req.body.currentIndex + 1
         if (kerningProgress.rows[0].progress < score) {
-            console.log("HERE")
             await pool.query(
                 'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 3',
                 [score, req.userId]
@@ -344,8 +341,9 @@ router.post('/login', jsonParser, async (req, res) => {
         // Checking of the user's existence
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
         if (user.rows.length) {
-            console.log('User already exist')
-            return res.status(401).json( { message: 'User already exist. Please signin' } );
+            // return res.status(401).json( { message: 'User already exist. Please signin' } );
+            locals.error = 'Пользователь уже существует'
+            res.render('login', locals)
         }
         else { 
             if (!username) {
@@ -371,7 +369,6 @@ router.post('/login', jsonParser, async (req, res) => {
                 )
                 const tasks = await pool.query('SELECT * FROM tasks')
                 let index
-                console.log(typeof newUser.rows[0].id)
                 for (index = 0; index < tasks.rows.length; ++index) {
                     await pool.query(
                         'INSERT INTO user_task (user_id, task_id) VALUES ($1, $2)',

@@ -152,24 +152,15 @@ function nextTask() {
     document.getElementById('next').style.visibility='hidden';
     if (index < 2) {
         currentMode = 'complementary'
-        console.log("complementary_list:", complementary[currentIndex])
     }
     else if (index >= 2 && index < 4) {
         currentMode = 'triad'
-        console.log("triad_list:", triads[currentIndex])
     }
     else if (index >= 4 && index < 6) {
         currentMode = 'tetrad'
-        console.log("tetrad_list:", tetrads[currentIndex])
-    }
-    else {
-        console.log("DONE")
     }
     // currentMode = modes[Math.floor(Math.random() * modes.length)];
     // currentIndex = Math.floor(Math.random() * getModeArray().length);
-    console.log("currentMode:", currentMode)
-    console.log("currentIndex:", currentIndex)
-    console.log("index:", index)
 
     setGameMode();
 
