@@ -205,6 +205,24 @@ router.get('/drag_comp_3', (req, res) => {
     res.render('drag_comp_3', { locals });
 });
 
+router.get('/int_game', (req, res) => {
+    const locals = {
+        title: "Практика по видам интерфейсов",
+        styles: ["/css/reset.css", "/css/int_game.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('int_game', { locals });
+});
+
+router.get('/int_game_2', (req, res) => {
+    const locals = {
+        title: "Практика по видам интерфейсов",
+        styles: ["/css/reset.css", "/css/int_game.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('int_game_2', { locals });
+});
+
 router.get('/test_fs', (req, res) => {
     const locals = {
         title: "Практика по фирменному стилю",
