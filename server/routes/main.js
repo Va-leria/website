@@ -64,21 +64,19 @@ router.get('/lk', authorization, async (req, res) => {
     try {
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [req.userLogin]);
         const userProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1', [req.userId]);
+        console.log(userProgress)
         let index
         const dict_progress = {}
         for (index = 0; index < userProgress.rows.length; ++index) {
             dict_progress[userProgress.rows[index].task_id] = userProgress.rows[index].progress
         }
+        console.log(dict_progress['1'])
         const data = {
             login: req.userLogin,
             username: user.rows[0].username,
         }
         const progress = {
             designBasics: {
-                kerningPractice: dict_progress['3'],
-                colorCircle: dict_progress['4']
-            },
-            graphicDesign: {
                 logoPractice: dict_progress['1']
             }
         }
@@ -198,6 +196,15 @@ router.get('/drag_comp_2', (req, res) => {
     res.render('drag_comp_2', { locals });
 });
 
+router.get('/drag_comp_3', (req, res) => {
+    const locals = {
+        title: "Практика по уроку композиция",
+        styles: ["/css/reset.css", "/css/drag_3.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('drag_comp_3', { locals });
+});
+
 router.get('/test_fs', (req, res) => {
     const locals = {
         title: "Практика по фирменному стилю",
@@ -216,13 +223,6 @@ router.get('/logo_practice', (req, res) => {
     res.render('logo_practice', { locals });
 });
 
-router.post('/logo_practice', authorization, jsonParser, async (req, res) => {
-    await pool.query(
-        'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 1',
-        [req.body.score, req.userId]
-    )
-})
-
 router.get('/game_color', (req, res) => {
     const locals = {
         title: "Практика по цветовому кругу",
@@ -232,16 +232,21 @@ router.get('/game_color', (req, res) => {
     res.render('game_color', { locals });
 });
 
-router.post('/game_color', authorization, jsonParser, async  (req, res) => {
-    const colorGameProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1 AND task_id = 4', [req.userId]);
-    if (colorGameProgress.rows[0].progress < req.body.score) {
-        await pool.query(
-            'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 4',
-            [req.body.score, req.userId]
-        )
+router.get('/polygraph_test', (req, res) => {
+    const locals = {
+        title: "Практика по уроку полиграфия",
+        styles: ["/css/reset.css", "/css/fonts.css", "/css/header.css", "/css/footer.css" ]
     }
+
+    res.render('polygraph_test', { locals });
 });
 
+router.post('/logo_practice', authorization, jsonParser, async (req, res) => {
+    await pool.query(
+        'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 1',
+        [req.body.score, req.userId]
+    )
+})
 router.get('/kerning', (req, res) => {
     const locals = {
         title: "Практика по уроку композиция",
@@ -256,6 +261,7 @@ router.post('/kerning', authorization, jsonParser, async  (req, res) => {
     if (kerningProgress.rows[0].progress < req.body.maxScore) {
         let score = req.body.currentIndex + 1
         if (kerningProgress.rows[0].progress < score) {
+            console.log("HERE")
             await pool.query(
                 'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 3',
                 [score, req.userId]
@@ -341,9 +347,8 @@ router.post('/login', jsonParser, async (req, res) => {
         // Checking of the user's existence
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
         if (user.rows.length) {
-            // return res.status(401).json( { message: 'User already exist. Please signin' } );
-            locals.error = 'Пользователь уже существует'
-            res.render('login', locals)
+            console.log('User already exist')
+            return res.status(401).json( { message: 'User already exist. Please signin' } );
         }
         else { 
             if (!username) {
@@ -369,6 +374,7 @@ router.post('/login', jsonParser, async (req, res) => {
                 )
                 const tasks = await pool.query('SELECT * FROM tasks')
                 let index
+                console.log(typeof newUser.rows[0].id)
                 for (index = 0; index < tasks.rows.length; ++index) {
                     await pool.query(
                         'INSERT INTO user_task (user_id, task_id) VALUES ($1, $2)',

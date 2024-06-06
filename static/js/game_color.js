@@ -27,7 +27,7 @@ const colors = [
 
 const complementary = [
     { color: '#C5047D', complement: '#8DBB25' },
-    { color: '#6D398B', complement: '#F3E500' },
+    { color: '#6D398B', complement: '#F3E500' }
     // { color: '#454E99', complement: '#FDC60A' },
     // { color: '#2A71AF', complement: '#F28E1C' },
     // { color: '#F3E500', complement: '#6D398B' },
@@ -42,7 +42,7 @@ const complementary = [
 
 const triads = [
     ['#C5047D', '#0696BB', '#FDC60A'],
-    ['#6D398B', '#008E5A', '#F28E1C'],
+    ['#6D398B', '#008E5A', '#F28E1C']
     // ['#454E99', '#8DBB25', '#E96220'],
     // ['#2A71AF', '#F3E500', '#E22321'],
     // ['#0696BB', '#FDC60A', '#C5047D'],
@@ -57,7 +57,7 @@ const triads = [
 
 const tetrads = [
     ['#C5047D', '#2A71AF', '#8DBB25', '#F28E1C'],
-    ['#6D398B', '#E96220', '#F3E500', '#0696BB'],
+    ['#6D398B', '#E96220', '#F3E500', '#0696BB']
     // ['#454E99', '#008E5A', '#FDC60A', '#E22321'],
     // ['#2A71AF', '#C5047D', '#F28E1C', '#8DBB25'],
     // ['#0696BB', '#F3E500', '#E96220', '#6D398B'],
