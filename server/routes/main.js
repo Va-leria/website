@@ -77,6 +77,10 @@ router.get('/lk', authorization, async (req, res) => {
         }
         const progress = {
             designBasics: {
+                kerningPractice: dict_progress['3'],
+                colorCircle: dict_progress['4']
+            },
+            graphicDesign: {
                 logoPractice: dict_progress['1']
             }
         }
@@ -250,6 +254,16 @@ router.get('/game_color', (req, res) => {
     res.render('game_color', { locals });
 });
 
+router.post('/game_color', authorization, jsonParser, async  (req, res) => {
+    const colorGameProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1 AND task_id = 4', [req.userId]);
+    if (colorGameProgress.rows[0].progress < req.body.score) {
+        await pool.query(
+            'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 4',
+            [req.body.score, req.userId]
+        )
+    }
+});
+
 router.get('/polygraph_test', (req, res) => {
     const locals = {
         title: "Практика по уроку полиграфия",
@@ -279,7 +293,6 @@ router.post('/kerning', authorization, jsonParser, async  (req, res) => {
     if (kerningProgress.rows[0].progress < req.body.maxScore) {
         let score = req.body.currentIndex + 1
         if (kerningProgress.rows[0].progress < score) {
-            console.log("HERE")
             await pool.query(
                 'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 3',
                 [score, req.userId]
@@ -316,7 +329,6 @@ router.post('/signin', jsonParser, async (req, res) => {
     try {
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
         if (!user.rows.length) {
-            console.log('User does not exist')
             locals.error = 'Invalid credentials'
             res.render('signin', locals)
             // return res.status(401).json( { message: 'Invalid credentials' } );
@@ -325,7 +337,6 @@ router.post('/signin', jsonParser, async (req, res) => {
             const isPasswordValid = await bcrypt.compare(password, user.rows[0].hashed_password);
             
             if(!isPasswordValid) {
-                console.log('Invalid password')
                 locals.error = 'Invalid credentials'
                 res.render('signin', locals)
                 // return res.status(401).json( { message: 'Invalid credentials' } );
@@ -365,8 +376,8 @@ router.post('/login', jsonParser, async (req, res) => {
         // Checking of the user's existence
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [login]);
         if (user.rows.length) {
-            console.log('User already exist')
-            return res.status(401).json( { message: 'User already exist. Please signin' } );
+            locals.error = "User already exist. Please signin"
+            res.render('login', locals)
         }
         else { 
             if (!username) {
@@ -392,7 +403,6 @@ router.post('/login', jsonParser, async (req, res) => {
                 )
                 const tasks = await pool.query('SELECT * FROM tasks')
                 let index
-                console.log(typeof newUser.rows[0].id)
                 for (index = 0; index < tasks.rows.length; ++index) {
                     await pool.query(
                         'INSERT INTO user_task (user_id, task_id) VALUES ($1, $2)',
