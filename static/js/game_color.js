@@ -101,13 +101,15 @@ function setGameMode() {
         star2.style.display = 'block';
         star3.style.display = 'block';
     }
-    if (currentIndex < getModeArray().length-1) {
-        currentIndex += 1
-    }
-    else {
-        currentIndex = 0
-    }
-    index += 1
+    // if (currentIndex < getModeArray().length-1) {
+    //     currentIndex += 1
+    // }
+    // else {
+    //     currentIndex = 0
+    // }
+    // index += 1
+    console.log("currentIndex:", currentIndex)
+    console.log("index:", index)
 }
 
 function checkColor(selectedColor) {
@@ -121,9 +123,12 @@ function checkColor(selectedColor) {
     } else if (currentMode === 'tetrad') {
         correctColor = tetrads[currentIndex][3];
     }
+    console.log("currentIndex:", currentIndex)
+    console.log("correctColor", correctColor)
 
     if (selectedColor === correctColor) {
-        if (index == 6) {
+        console.log("index:", index)
+        if (index == 5) {
             result.setAttribute('style', 'white-space: pre;');
             result.textContent = "ВЕРНО! \r\n";
             result.textContent += "Игра завершена!"
@@ -150,17 +155,24 @@ function checkColor(selectedColor) {
 function nextTask() {
     nextButton.classList.add("hidden");
     document.getElementById('next').style.visibility='hidden';
-    if (index < 2) {
+    if (index < 1) {
         currentMode = 'complementary'
     }
-    else if (index >= 2 && index < 4) {
+    else if (index >= 1 && index < 3) {
         currentMode = 'triad'
     }
-    else if (index >= 4 && index < 6) {
+    else if (index >= 3 && index < 5) {
         currentMode = 'tetrad'
     }
     // currentMode = modes[Math.floor(Math.random() * modes.length)];
     // currentIndex = Math.floor(Math.random() * getModeArray().length);
+    if (currentIndex < getModeArray().length-1) {
+        currentIndex += 1
+    }
+    else {
+        currentIndex = 0
+    }
+    index += 1
 
     setGameMode();
 

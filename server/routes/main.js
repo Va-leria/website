@@ -64,13 +64,11 @@ router.get('/lk', authorization, async (req, res) => {
     try {
         const user = await pool.query('SELECT * FROM users WHERE login = $1', [req.userLogin]);
         const userProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1', [req.userId]);
-        console.log(userProgress)
         let index
         const dict_progress = {}
         for (index = 0; index < userProgress.rows.length; ++index) {
             dict_progress[userProgress.rows[index].task_id] = userProgress.rows[index].progress
         }
-        console.log(dict_progress['1'])
         const data = {
             login: req.userLogin,
             username: user.rows[0].username,
@@ -256,10 +254,10 @@ router.get('/game_color', (req, res) => {
 
 router.post('/game_color', authorization, jsonParser, async  (req, res) => {
     const colorGameProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1 AND task_id = 4', [req.userId]);
-    if (colorGameProgress.rows[0].progress < req.body.score) {
+    if (colorGameProgress.rows[0].progress < req.body.score+1) {
         await pool.query(
             'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 4',
-            [req.body.score, req.userId]
+            [req.body.score+1, req.userId]
         )
     }
 });
