@@ -225,6 +225,33 @@ router.get('/int_game_2', (req, res) => {
     res.render('int_game_2', { locals });
 });
 
+router.get('/ui_ux', (req, res) => {
+    const locals = {
+        title: "Практика по введению в UI/UX дизайн",
+        styles: ["/css/reset.css", "/css/drag_ui_ux.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('ui_ux', { locals });
+});
+
+router.get('/ui_ux_2', (req, res) => {
+    const locals = {
+        title: "Практика по введению в UI/UX дизайн",
+        styles: ["/css/reset.css", "/css/drag_ui_ux_2.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('ui_ux_2', { locals });
+});
+
+router.get('/ui_ux_3', (req, res) => {
+    const locals = {
+        title: "Практика по введению в UI/UX дизайн",
+        styles: ["/css/reset.css", "/css/drag_ui_ux_2.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('ui_ux_3', { locals });
+});
+
 router.get('/test_fs', (req, res) => {
     const locals = {
         title: "Практика по фирменному стилю",
@@ -269,6 +296,15 @@ router.get('/polygraph_test', (req, res) => {
     }
 
     res.render('polygraph_test', { locals });
+});
+
+router.get('/test_prot', (req, res) => {
+    const locals = {
+        title: "Практика по уроку прототипирование",
+        styles: ["/css/reset.css", "/css/fonts.css", "/css/header.css", "/css/footer.css" ]
+    }
+
+    res.render('test_prot', { locals });
 });
 
 router.post('/logo_practice', authorization, jsonParser, async (req, res) => {

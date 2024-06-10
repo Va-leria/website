@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Unbounded', sans-serif;
+    background-color: #577590;
+    color: #111;
+  }
+
+  .title h3{
+    font-family: 'Unbounded';
+    margin-top: 30px;
+    margin-left: 200px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FBF8EE;
+    align-items: center;
+  }
+  
+  .draggable-elements {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+  }
+  .draggable {
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    margin: 0rem 0.5rem;
+    cursor: move;
+    transition: opacity 0.2s;
+  }
+  .draggable:hover {
+    opacity: 0.5;
+  }
+  .droppable {
+    height: 150px;
+    width: 200px;
+    margin: 1rem auto;
+    margin-left: 100px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 300;
+    background-color: #FBF8EE;
+    border: 3px dashed #97CC04;
+    transition: border-width 0.2s, transform 0.2s, background-color 0.4s;
+  }
+  .droppable span {
+    font-size: 1.25rem;
+    pointer-events: none; /* The element is never the target of pointer events */
+  }
+  
+  /* Drag and Drop Related Styling */
+  
+  .droppable.droppable-hover {
+    /* background-color: #bee3f0; */
+    border-width: 5px;
+    transform: scale(1.1);
+  }
+  .droppable.dropped {
+    border-style: solid;
+    color: #fff;
+  }
+  .droppable.dropped span {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+  .droppable.dropped i {
+    pointer-events: none;
+  }
+  .draggable.dragged {
+    user-select: none;
+    opacity: 0.1;
+    cursor: default;
+  }
+  .draggable.dragged:hover {
+    opacity: 0.1;
+  }
+
+  .fas fa-balance draggable{
+    width: 100px;
+    height: 100px;
+  }
+  
+  .fas fa-ierarh draggable{
+    width: 100px;
+    height: 100px;
+  }
+
+  .fas fa-contr draggable{
+    width: 100px;
+    height: 100px;
+  }
+
+  .fas fa-vozd draggable{
+    width: 100px;
+    height: 100px;
+  }
+
+  .fas {
+    width: 200px;
+    height: 200px;
+  }
+
+  .e535_294 { 
+    box-shadow:2px 5px 28.799999237060547px rgba(0, 0, 0, 0.25);
+    background-image:linear-gradient(0deg, rgba(250.75000405311584, 124.34412494301796, 7.6617844216525555, 1) 0%,rgba(235.87498784065247, 123.44124019145966, 19.656248353421688, 1) 100%) ;
+    width:200px;
+    height:49px;
+    position:absolute;
+    left:970px;
+    top:570px;
+    border-top-left-radius:50px;
+    border-top-right-radius:50px;
+    border-bottom-left-radius:50px;
+    border-bottom-right-radius:50px;
+  }
+  .e535_295 { 
+    color:rgba(251.45833164453506, 248.14048647880554, 238.18690538406372, 1);
+    width:260px;
+    height:25px;
+    position:absolute;
+    left:31px;
+    top:17px;
+    font-family:Unbounded;
+    text-align:left;
+    font-size:14px;
+    letter-spacing:0;
+  }
+
+  .e535_295 a{
+    text-decoration: none;
+    color: #FBF8EE;
+  }
+
+  .out { 
+    box-shadow:2px 5px 28.799999237060547px rgba(0, 0, 0, 0.25);
+    background-image:linear-gradient(0deg, rgba(250.75000405311584, 124.34412494301796, 7.6617844216525555, 1) 0%,rgba(235.87498784065247, 123.44124019145966, 19.656248353421688, 1) 100%) ;
+    width:150px;
+    height:49px;
+    position:absolute;
+    left:90px;
+    top:570px;
+    border-top-left-radius:50px;
+    border-top-right-radius:50px;
+    border-bottom-left-radius:50px;
+    border-bottom-right-radius:50px;
+  }
+  .button_out { 
+    color:rgba(251.45833164453506, 248.14048647880554, 238.18690538406372, 1);
+    width:260px;
+    height:25px;
+    position:absolute;
+    left:41px;
+    top:17px;
+    font-family:Unbounded;
+    text-align:left;
+    font-size:14px;
+    letter-spacing:0;
+  }
+
+  .button_out a{
+    text-decoration: none;
+    color: #FBF8EE;
+  }
+
+  @media (max-width: 600px) {
+    html { font-size: 14px; }
+    .draggable-elements { margin: 1.5rem; }
+  }
