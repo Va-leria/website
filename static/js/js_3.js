@@ -5,6 +5,8 @@ const $ = document.querySelector.bind(document);
 const draggableElements = document.querySelectorAll(".draggable");
 const droppableElements = document.querySelectorAll(".droppable");
 const buttonOut = $('.button_out');
+let index = 0;
+let score = 3;
 
 draggableElements.forEach(elem => {
   elem.addEventListener("dragstart", dragStart); 
@@ -69,12 +71,27 @@ function drop(event) {
 
     draggableElement.classList.add("dragged");
     draggableElement.setAttribute("draggable", "false");
+    index += 1;
+    console.log("index:", index)
   }
+
+  if (index === 5) {
+    const data ={
+      score: score
+    }
+
+    fetch('http://localhost:3030/drag_comp', {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+  }
+
 }
 
 
 buttonOut.addEventListener('click', exitAlert);
 
 function exitAlert() {
-  alert('Если Вы выйдете, весь прогресс потеряется');
+  alert('Вы уверены, что хотите выйти?');
 }

@@ -76,6 +76,7 @@ router.get('/lk', authorization, async (req, res) => {
         const progress = {
             designBasics: {
                 kerningPractice: dict_progress['3'],
+                compositionPractice: dict_progress['2'],
                 colorCircle: dict_progress['4']
             },
             graphicDesign: {
@@ -178,6 +179,16 @@ router.get('/lesson_ui_ux', (req, res) => {
     }
 
     res.render('lesson_ui_ux', { locals });
+});
+
+router.post('/drag_comp', authorization, jsonParser, async  (req, res) => {
+    const dragCompProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1 AND task_id = 2', [req.userId]);
+    if (dragCompProgress.rows[0].progress < req.body.score) {
+        await pool.query(
+            'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 2',
+            [req.body.score, req.userId]
+        )
+    }
 });
 
 router.get('/drag_comp', (req, res) => {

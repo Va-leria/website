@@ -12,7 +12,7 @@ document.getElementById('next').style.visibility='hidden';
 divClass.classList.add("hidden");
 document.getElementById('e535_294').style.visibility='hidden';
 let index = 0;
-let score = 1;
+let score = 2;
 
 draggableElements.forEach(elem => {
   elem.addEventListener("dragstart", dragStart); // Fires as soon as the user starts dragging an item - This is where we can define the drag data
