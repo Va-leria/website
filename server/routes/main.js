@@ -81,7 +81,8 @@ router.get('/lk', authorization, async (req, res) => {
             },
             graphicDesign: {
                 logoPractice: dict_progress['1'],
-                fsPractice: dict_progress['5']
+                fsPractice: dict_progress['5'],
+                polygraphPractice: dict_progress['6'],
             }
         }
         res.render('lk', { locals, data, progress });
@@ -281,13 +282,20 @@ router.post('/game_color', authorization, jsonParser, async  (req, res) => {
     }
 });
 
-router.get('/polygraph_test', (req, res) => {
+router.get('/polygraph_practice', (req, res) => {
     const locals = {
         title: "Практика по уроку полиграфия",
         styles: ["/css/reset.css", "/css/fonts.css", "/css/header.css", "/css/footer.css" ]
     }
 
-    res.render('polygraph_test', { locals });
+    res.render('polygraph_practice', { locals });
+});
+
+router.post('/polygraph_practice', authorization, jsonParser, async (req, res) => {
+    await pool.query(
+        'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 6',
+        [req.body.score, req.userId]
+    )
 });
 
 router.post('/logo_practice', authorization, jsonParser, async (req, res) => {
