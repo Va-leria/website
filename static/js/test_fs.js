@@ -78,7 +78,7 @@ function nextQuetion() {
             score: userScore
         }
 
-        fetch('http://localhost:3030/polygraph_practice', {
+        fetch('http://localhost:3030/fs_practice', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -95,3 +95,5 @@ function nextQuetion() {
      }
 
 }
+
+

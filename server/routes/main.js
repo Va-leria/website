@@ -76,10 +76,13 @@ router.get('/lk', authorization, async (req, res) => {
         const progress = {
             designBasics: {
                 kerningPractice: dict_progress['3'],
+                compositionPractice: dict_progress['2'],
                 colorCircle: dict_progress['4']
             },
             graphicDesign: {
-                logoPractice: dict_progress['1']
+                logoPractice: dict_progress['1'],
+                fsPractice: dict_progress['5'],
+                polygraphPractice: dict_progress['6'],
             }
         }
         res.render('lk', { locals, data, progress });
@@ -180,6 +183,16 @@ router.get('/lesson_ui_ux', (req, res) => {
     res.render('lesson_ui_ux', { locals });
 });
 
+router.post('/drag_comp', authorization, jsonParser, async  (req, res) => {
+    const dragCompProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1 AND task_id = 2', [req.userId]);
+    if (dragCompProgress.rows[0].progress < req.body.score) {
+        await pool.query(
+            'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 2',
+            [req.body.score, req.userId]
+        )
+    }
+});
+
 router.get('/drag_comp', (req, res) => {
     const locals = {
         title: "Практика по уроку композиция",
@@ -252,13 +265,20 @@ router.get('/ui_ux_3', (req, res) => {
     res.render('ui_ux_3', { locals });
 });
 
-router.get('/test_fs', (req, res) => {
+router.get('/fs_practice', (req, res) => {
     const locals = {
         title: "Практика по фирменному стилю",
         styles: ["/css/reset.css", "/css/fonts.css", "/css/header.css", "/css/footer.css" ]
     }
 
-    res.render('test_fs', { locals });
+    res.render('fs_practice', { locals });
+});
+
+router.post('/fs_practice', authorization, jsonParser, async (req, res) => {
+    await pool.query(
+        'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 5',
+        [req.body.score, req.userId]
+    )
 });
 
 router.get('/logo_practice', (req, res) => {
@@ -289,13 +309,20 @@ router.post('/game_color', authorization, jsonParser, async  (req, res) => {
     }
 });
 
-router.get('/polygraph_test', (req, res) => {
+router.get('/polygraph_practice', (req, res) => {
     const locals = {
         title: "Практика по уроку полиграфия",
         styles: ["/css/reset.css", "/css/fonts.css", "/css/header.css", "/css/footer.css" ]
     }
 
-    res.render('polygraph_test', { locals });
+    res.render('polygraph_practice', { locals });
+});
+
+router.post('/polygraph_practice', authorization, jsonParser, async (req, res) => {
+    await pool.query(
+        'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 6',
+        [req.body.score, req.userId]
+    )
 });
 
 router.get('/test_prot', (req, res) => {
