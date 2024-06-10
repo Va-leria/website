@@ -80,7 +80,8 @@ router.get('/lk', authorization, async (req, res) => {
                 colorCircle: dict_progress['4']
             },
             graphicDesign: {
-                logoPractice: dict_progress['1']
+                logoPractice: dict_progress['1'],
+                fsPractice: dict_progress['5']
             }
         }
         res.render('lk', { locals, data, progress });
@@ -236,13 +237,20 @@ router.get('/int_game_2', (req, res) => {
     res.render('int_game_2', { locals });
 });
 
-router.get('/test_fs', (req, res) => {
+router.get('/fs_practice', (req, res) => {
     const locals = {
         title: "Практика по фирменному стилю",
         styles: ["/css/reset.css", "/css/fonts.css", "/css/header.css", "/css/footer.css" ]
     }
 
-    res.render('test_fs', { locals });
+    res.render('fs_practice', { locals });
+});
+
+router.post('/fs_practice', authorization, jsonParser, async (req, res) => {
+    await pool.query(
+        'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 5',
+        [req.body.score, req.userId]
+    )
 });
 
 router.get('/logo_practice', (req, res) => {
