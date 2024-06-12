@@ -34,3 +34,4 @@ INSERT INTO tasks (task_name) VALUES ('fs_practice');
 INSERT INTO tasks (task_name) VALUES ('polygraph_practice');
 INSERT INTO tasks (task_name) VALUES ('ui_ux');
 INSERT INTO tasks (task_name) VALUES ('prototype');
+INSERT INTO tasks (task_name) VALUES ('interface');

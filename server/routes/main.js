@@ -87,6 +87,7 @@ router.get('/lk', authorization, async (req, res) => {
             uiUxDesign: {
                 uiUxIntroduction: dict_progress['7'],
                 prototypePractice: dict_progress['8'],
+                interfacePractice: dict_progress['9']
             }
         }
         res.render('lk', { locals, data, progress });
@@ -240,6 +241,16 @@ router.get('/int_game_2', (req, res) => {
     }
 
     res.render('int_game_2', { locals });
+});
+
+router.post('/interface_practice', authorization, jsonParser, async  (req, res) => {
+    const interfaceProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1 AND task_id = 9', [req.userId]);
+    if (interfaceProgress.rows[0].progress < req.body.score) {
+        await pool.query(
+            'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 9',
+            [req.body.score, req.userId]
+        )
+    }
 });
 
 router.get('/ui_ux', (req, res) => {
