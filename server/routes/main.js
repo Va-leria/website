@@ -86,6 +86,7 @@ router.get('/lk', authorization, async (req, res) => {
             },
             uiUxDesign: {
                 uiUxIntroduction: dict_progress['7'],
+                prototypePractice: dict_progress['8'],
             }
         }
         res.render('lk', { locals, data, progress });
@@ -346,6 +347,13 @@ router.get('/test_prot', (req, res) => {
 
     res.render('test_prot', { locals });
 });
+
+router.post('/prototype_practice', authorization, jsonParser, async (req, res) => {
+    await pool.query(
+        'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 8',
+        [req.body.score, req.userId]
+    )
+})
 
 router.post('/logo_practice', authorization, jsonParser, async (req, res) => {
     await pool.query(
