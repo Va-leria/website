@@ -70,7 +70,6 @@ function drop(event) {
     draggableElement.setAttribute("draggable", "false");
     event.target.insertAdjacentHTML("afterbegin", `<i class="fas fa-${draggableElementData}"></i>`);
     index += 1;
-    console.log("index:", index)
   }
   if (index === 5) {
     nextButton.classList.remove("hidden");

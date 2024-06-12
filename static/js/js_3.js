@@ -5,6 +5,12 @@ const $ = document.querySelector.bind(document);
 const draggableElements = document.querySelectorAll(".draggable");
 const droppableElements = document.querySelectorAll(".droppable");
 const buttonOut = $('.button_out');
+const nextButton = $('.next');
+const divClass = $('.e535_294')
+nextButton.classList.add("hidden");
+document.getElementById('next').style.visibility='hidden';
+divClass.classList.add("hidden");
+document.getElementById('e535_294').style.visibility='hidden';
 let index = 0;
 let score = 3;
 
@@ -72,10 +78,13 @@ function drop(event) {
     draggableElement.classList.add("dragged");
     draggableElement.setAttribute("draggable", "false");
     index += 1;
-    console.log("index:", index)
   }
 
   if (index === 5) {
+    nextButton.classList.remove("hidden");
+    document.getElementById('next').style.visibility='visible';
+    divClass.classList.remove("hidden");
+    document.getElementById('e535_294').style.visibility='visible';
     const data ={
       score: score
     }

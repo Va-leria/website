@@ -32,3 +32,4 @@ INSERT INTO tasks (task_name) VALUES ('kerning');
 INSERT INTO tasks (task_name) VALUES ('color');
 INSERT INTO tasks (task_name) VALUES ('fs_practice');
 INSERT INTO tasks (task_name) VALUES ('polygraph_practice');
+INSERT INTO tasks (task_name) VALUES ('ui_ux');

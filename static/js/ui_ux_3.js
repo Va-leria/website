@@ -13,7 +13,7 @@ document.getElementById('e535_295').style.visibility='hidden';
 divClass.classList.add("hidden");
 document.getElementById('e535_294').style.visibility='hidden';
 let index = 0;
-let score = 1;
+let score = 3;
 
 draggableElements.forEach(elem => {
   elem.addEventListener("dragstart", dragStart); // Fires as soon as the user starts dragging an item - This is where we can define the drag data
@@ -71,8 +71,9 @@ function drop(event) {
     draggableElement.setAttribute("draggable", "false");
     event.target.insertAdjacentHTML("afterbegin", `<i class="fas fa-${draggableElementData}"></i>`);
     index += 1;
+    console.log("index:", index)
   }
-  if (index === 4) {
+  if (index === 2) {
     nextButton.classList.remove("hidden");
     document.getElementById('e535_295').style.visibility='visible';
     divClass.classList.remove("hidden");

@@ -83,6 +83,9 @@ router.get('/lk', authorization, async (req, res) => {
                 logoPractice: dict_progress['1'],
                 fsPractice: dict_progress['5'],
                 polygraphPractice: dict_progress['6'],
+            },
+            uiUxDesign: {
+                uiUxIntroduction: dict_progress['7'],
             }
         }
         res.render('lk', { locals, data, progress });
@@ -263,6 +266,16 @@ router.get('/ui_ux_3', (req, res) => {
     }
 
     res.render('ui_ux_3', { locals });
+});
+
+router.post('/ui_ux', authorization, jsonParser, async  (req, res) => {
+    const uiUxProgress = await pool.query('SELECT * FROM user_task WHERE user_id = $1 AND task_id = 7', [req.userId]);
+    if (uiUxProgress.rows[0].progress < req.body.score) {
+        await pool.query(
+            'UPDATE user_task SET progress = $1 WHERE user_id = $2 AND task_id = 7',
+            [req.body.score, req.userId]
+        )
+    }
 });
 
 router.get('/fs_practice', (req, res) => {
