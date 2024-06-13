@@ -145,6 +145,29 @@
     color: #FBF8EE;
   }
 
+  .e535_294_next {
+    color:#FBF8EE;
+  }
+
+  .next {
+    
+    width:260px;
+    height:25px;
+    position:absolute;
+    left:38px;
+    top:17px;
+    font-family:Unbounded;
+    text-align:left;
+    font-size:14px;
+    letter-spacing:0;
+    text-decoration: none;
+  }
+
+  .next a{
+    text-decoration: none;
+    color: #FBF8EE;
+  }
+
   .out { 
     box-shadow:2px 5px 28.799999237060547px rgba(0, 0, 0, 0.25);
     background-image:linear-gradient(0deg, rgba(250.75000405311584, 124.34412494301796, 7.6617844216525555, 1) 0%,rgba(235.87498784065247, 123.44124019145966, 19.656248353421688, 1) 100%) ;
@@ -163,7 +186,7 @@
     width:260px;
     height:25px;
     position:absolute;
-    left:41px;
+    left:45px;
     top:17px;
     font-family:Unbounded;
     text-align:left;

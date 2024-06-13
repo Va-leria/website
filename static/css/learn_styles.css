@@ -212,3 +212,24 @@ body{
 .theme{
     margin-bottom: 50px;
 }
+
+.dpo{
+    margin-top: 50px;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 80px;
+    margin-bottom: 10px;
+}
+
+.liter{
+    margin-top: 30px;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 80px;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+.liter a{
+    color: #000;
+}
