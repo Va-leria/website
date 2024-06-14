@@ -6,22 +6,21 @@ html{
     background-color: #FBF8EE;
 }
 
-.main { 
-    overflow:hidden;
-}
+
 .main { 
     background-color:rgba(251.45833164453506, 248.14048647880554, 238.18690538406372, 1);
-    width:1200px;
+    width:1300px;
     height:1403px;
-    position:absolute;
+    position:relative;
+    justify-content: center;
 }
 .title { 
     color:rgba(0, 0, 0, 1);
     width:252px;
     height:25px;
     position:absolute;
-    left:474px;
-    top:30px;
+    left:574px;
+    top:47px;
     font-family:Unbounded;
     text-align:left;
     font-size:20px;
@@ -33,84 +32,85 @@ html{
     width:1200px;
     height:60px;
     position:absolute;
-    left:20px;
-    top:80px;
+    margin-left:50px;
+    top:102px;
     font-family:Unbounded;
-    line-height: 18px;
     text-align:left;
     font-size:14px;
     letter-spacing:0;
+    line-height: 18px;
 }
 .prot_1 { 
     color:rgba(0, 0, 0, 1);
     width:577px;
     height:70px;
     position:absolute;
-    left:20px;
-    top:172px;
+    margin-left:50px;
+    top:192px;
     font-family:Unbounded;
-    line-height: 18px;
     text-align:left;
     font-size:14px;
     letter-spacing:0;
+    line-height: 18px;
 }
 .prot_2 { 
     color:rgba(0, 0, 0, 1);
     width:560px;
     height:68px;
     position:absolute;
-    left:20px;
-    top:272px;
+    margin-left:50px;
+    top:292px;
     font-family:Unbounded;
-    line-height: 18px;
     text-align:left;
     font-size:14px;
     letter-spacing:0;
+    line-height: 18px;
 }
 .prot_3 { 
     color:rgba(0, 0, 0, 1);
     width:632px;
     height:140px;
     position:absolute;
-    left:20px;
-    top:370px;
+    margin-left:50px;
+    top:390px;
     font-family:Unbounded;
-    line-height: 18px;
     text-align:left;
     font-size:14px;
     letter-spacing:0;
+    line-height: 18px;
 }
 .example { 
     color:rgba(0, 0, 0, 1);
     width:886px;
     height:17px;
     position:absolute;
-    left:190px;
-    top:568px;
+    left:258px;
+    top:578px;
     font-family:Unbounded;
     text-align:left;
     font-size:14px;
     letter-spacing:0;
+    line-height: 18px;
 }
 .example_text{ 
     color:rgba(0, 0, 0, 1);
     width:614px;
     height:385px;
     position:absolute;
-    left:20px;
+    margin-left:50px;
     top:661px;
     font-family:Unbounded;
-    line-height: 18px;
     text-align:left;
     font-size:14px;
     letter-spacing:0;
+    line-height: 18px;
 }
 .e543_344 { 
     background-color:rgba(243.66666734218597, 237.91344165802002, 220.65367341041565, 1);
     width:738px;
     height:104px;
     position:absolute;
-    left:250px;
+    left:331px;
     top:1143px;
     border-top-left-radius:20px;
     border-top-right-radius:20px;
@@ -122,13 +122,13 @@ html{
     width:594px;
     height:51px;
     position:absolute;
-    left:303px;
+    left:403px;
     top:1164px;
     font-family:Unbounded;
-    line-height: 18px;
     text-align:center;
     font-size:14px;
     letter-spacing:0;
+    line-height: 18px;
 }
 .but { 
     box-shadow:2px 5px 28.799999237060547px rgba(0, 0, 0, 0.25);
@@ -136,7 +136,7 @@ html{
     width:280px;
     height:59px;
     position:absolute;
-    left:500px;
+    left:564px;
     top:1297px;
     border-top-left-radius:50px;
     border-top-right-radius:50px;
@@ -148,19 +148,24 @@ html{
     width:250px;
     height:25px;
     position:absolute;
-    left:21px;
-    top:17px;
+    left:20px;
+    top:20px;
     font-family:Unbounded;
     text-align:left;
     font-size:20px;
     letter-spacing:0;
 }
+
+.button a{
+    text-decoration: none;
+    color: #FBF8EE;
+}
 .e593_289 { 
     width:568px;
     height:410px;
     position:absolute;
-    left:633px;
-    top:669px;
+    left:733px;
+    top:649px;
     background-repeat:no-repeat;
     background-size:cover;
 }
@@ -172,8 +177,9 @@ html{
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    left:700px;
-    top:300px;
+    left:764px;
+    top:320px;
+    background-image:url(/img/image_64.png);
     background-repeat:no-repeat;
     background-size:cover;
 }

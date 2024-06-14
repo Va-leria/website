@@ -6,12 +6,18 @@ html{
     background-color: #FBF8EE;
 }
 
+.body{
+	overflow-x: hidden;
+	max-width: 1300px;
+    margin: 0 auto;
+}
+
 .e531_220 { 
 	overflow:hidden;
 }
 .e531_220 { 
 	background-color:rgba(251.45833164453506, 248.14048647880554, 238.18690538406372, 1);
-	width:1200px;
+	width:1300px;
 	height:2384px;
 	position:absolute;
 }
@@ -24,7 +30,7 @@ html{
 	top:30px;
 	font-family:Unbounded;
 	font-weight: bold;
-	text-align:left;
+	text-align:center;
 	font-size:20px;
 	letter-spacing:0;
 }
@@ -56,10 +62,10 @@ html{
 }
 .e531_226 { 
 	color:rgba(0, 0, 0, 1);
-	width:1200px;
+	width:1300px;
 	height:87px;
 	position:absolute;
-	left:20px;
+	left:50px;
 	top:100px;
 	font-family:Unbounded;
 	line-height: 18px;
@@ -72,7 +78,7 @@ html{
 	width:616px;
 	height:426px;
 	position:absolute;
-	left: 20px;
+	left: 50px;
 	top:220px;
 	font-family:Unbounded;
 	line-height: 18px;
@@ -85,7 +91,7 @@ html{
 	width:1197px;
 	height:322px;
 	position:absolute;
-	left:20px;
+	left:50px;
 	top:864px;
 	font-family:Unbounded;
 	line-height: 18px;
@@ -98,7 +104,7 @@ html{
 	width:614px;
 	height:119px;
 	position:absolute;
-	left:20px;
+	left:50px;
 	top:1373px;
 	font-family:Unbounded;
 	line-height: 18px;
@@ -111,7 +117,7 @@ html{
 	width:614px;
 	height:34px;
 	position:absolute;
-	left:20px;
+	left:50px;
 	top:1555px;
 	font-family:Unbounded;
 	line-height: 18px;
@@ -124,7 +130,7 @@ html{
 	width:614px;
 	height:68px;
 	position:absolute;
-	left:20px;
+	left:50px;
 	top:1652px;
 	font-family:Unbounded;
 	line-height: 18px;
@@ -137,7 +143,7 @@ html{
 	width:614px;
 	height:51px;
 	position:absolute;
-	left:20px;
+	left:50px;
 	top:1765px;
 	font-family:Unbounded;
 	line-height: 18px;
@@ -150,7 +156,7 @@ html{
 	width:614px;
 	height:51px;
 	position:absolute;
-	left:20px;
+	left:50px;
 	top:1861px;
 	font-family:Unbounded;
 	line-height: 18px;
@@ -163,7 +169,7 @@ html{
 	width:614px;
 	height:68px;
 	position:absolute;
-	left:20px;
+	left:50px;
 	top:1957px;
 	font-family:Unbounded;
 	line-height: 18px;
@@ -176,7 +182,7 @@ html{
 	width:614px;
 	height:85px;
 	position:absolute;
-	left:20px;
+	left:50px;
 	top:2054px;
 	font-family:Unbounded;
 	line-height: 18px;
@@ -209,11 +215,17 @@ html{
 	font-size:20px;
 	letter-spacing:0;
 }
+
+.e531_231 a{
+	text-decoration: none;
+	color: #FBF8EE;
+}
+
 .e611_105 { 
 	width:444px;
 	height:445px;
 	position:absolute;
-	left:700px;
+	left:800px;
 	top:231px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -226,7 +238,7 @@ html{
 	width:435px;
 	height:218.50694274902344px;
 	position:absolute;
-	left:700px;
+	left:850px;
 	top:1373px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -239,7 +251,7 @@ html{
 	width:435px;
 	height:235px;
 	position:absolute;
-	left:700px;
+	left:850px;
 	top:1613px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -252,7 +264,7 @@ html{
 	width:435px;
 	height:286px;
 	position:absolute;
-	left:700px;
+	left:850px;
 	top:1875px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;

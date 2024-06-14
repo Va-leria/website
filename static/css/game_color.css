@@ -86,3 +86,12 @@ button {
 button:hover {
     background-color: darkorange;
 }
+
+.button a{
+text-decoration: none;
+}
+
+.exit a{
+    text-decoration: none;
+    color: #FBF8EE;
+    }
