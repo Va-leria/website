@@ -6,8 +6,8 @@ const pool = require('./db')
 
 const app = express();
 
-const PORT = 3030
-const HOST = 'localhost'
+const PORT = 80
+const HOST = '85.193.91.37'
 
 app.use(express.static('static')); // подключает статику
 

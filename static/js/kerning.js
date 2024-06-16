@@ -1202,7 +1202,7 @@ function gameOver() {
     maxScore: stages.length
   }
 
-  fetch('http://localhost:3030/kerning', {
+  fetch('http://85.193.91.37:80/kerning', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -1381,7 +1381,7 @@ function Stage(selector){
     const scoreEl = dom.gid("score");
     console.log(stages.length)
     //scoreEl.textContent = 100;
-    if (score > 30) {
+    if (score > 80) {
       if (stage.index === stages.length - 1) {
         gameOverButton.classList.remove("hidden");
       }
@@ -1586,7 +1586,7 @@ function Game(){
       maxScore: stages.length
     }
 
-    fetch('http://localhost:3030/kerning', {
+    fetch('http://85.193.91.37:80/kerning', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)

@@ -80,7 +80,7 @@ function drop(event) {
       score: score
     }
 
-    fetch('http://localhost:3030/drag_comp', {
+    fetch('http://85.193.91.37:80/drag_comp', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)

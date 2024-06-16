@@ -266,6 +266,10 @@ html{
   
 }
 
+.vacancies__content-cart.hidden {
+  display: none;
+}
+
 .vacancies__cart-logo{
   display: flex;
   align-items: center;
@@ -276,6 +280,10 @@ html{
 .vacancies__cart-title{
   font-weight: 700;
   margin-bottom: 14px;
+}
+
+.vacancies__cart-title .hidden {
+  display: none;
 }
 
 .vacancies__cart-description{

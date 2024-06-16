@@ -81,7 +81,7 @@ function drop(event) {
       score: score
     }
 
-    fetch('http://localhost:3030/interface_practice', {
+    fetch('http://85.193.91.37:80/interface_practice', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)

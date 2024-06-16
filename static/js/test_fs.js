@@ -78,7 +78,7 @@ function nextQuetion() {
             score: userScore
         }
 
-        fetch('http://localhost:3030/fs_practice', {
+        fetch('http://85.193.91.37:80/fs_practice', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

@@ -142,7 +142,7 @@ function checkColor(selectedColor) {
             score: index
         }
     
-        fetch('http://localhost:3030/game_color', {
+        fetch('http://85.193.91.37:80/game_color', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
